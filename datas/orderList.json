@@ -6,12 +6,12 @@
     },
     {
         "status": "Cancel",
-        "UserId": 1,
+        "UserId": 2,
         "CourtCategory": 1
     },
     {
         "status": "Finish",
-        "UserId": 1,
+        "UserId": 2,
         "CourtCategory": 2
     }
 ]

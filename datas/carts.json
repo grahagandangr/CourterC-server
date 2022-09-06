@@ -1,20 +1,17 @@
 [
     {
-        "PackageId": 1,
-        "CourtId": 3,
-        "UserId": 1,
+        "CourtCategoryId": 1,
+        "UserId": 2,
         "Date": "6/27/2022"
     },
     {
-        "PackageId": 2,
-        "CourtId": 1,
+        "CourtCategoryId": 3,
         "UserId": 2,
         "Date": "5/27/2022"
     },
     {
-        "PackageId": 3,
-        "CourtId": 1,
-        "UserId": 1,
+        "CourtCategoryId": 2,
+        "UserId": 2,
         "Date": "4/27/2022"
     }
 ]
