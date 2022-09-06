@@ -1,0 +1,26 @@
+[
+    {
+        "name": "GOR Suluh",
+        "description": "Play with your friend here!",
+        "UserId": 1,
+        "openHour": "09:00",
+        "closeHour": "18:00",
+        "location": "1 Michigan Point"
+    },
+    {
+        "name": "GOR Citarum",
+        "description": "Play with your friend here",
+        "UserId": 2,
+        "openHour": "09:00",
+        "closeHour": "18:00",
+        "location": "98601 Independence Way"
+    },
+    {
+        "name": "GOR Thejak",
+        "description": "Play with your friend here",
+        "UserId": 1,
+        "openHour": "09:00",
+        "closeHour": "18:00",
+        "location": "7178 Clyde Gallagher Circle"
+    }
+]

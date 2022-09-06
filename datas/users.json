@@ -1,0 +1,20 @@
+[
+    {
+        "username": "owner",
+        "email": "owner@mail.com",
+        "password": "123456",
+        "role": "owner",
+        "phoneNumber": "0822653535",
+        "address": "dummy address",
+        "balance": 0
+    },
+    {
+        "username": "customer",
+        "email": "customer@mail.com",
+        "password": "123456",
+        "role": "customer",
+        "phoneNumber": "0822653535",
+        "address": "dummy address",
+        "balance": 0
+    }
+]
