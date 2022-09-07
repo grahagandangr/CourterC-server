@@ -25,6 +25,8 @@ module.exports = {
           model: "CourtCategories",
           key: "id",
         },
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
       },
       status: {
         allowNull: false,

@@ -15,6 +15,8 @@ module.exports = {
           model: "Categories",
           key: "id",
         },
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
       },
       CourtId: {
         allowNull: false,
@@ -23,6 +25,8 @@ module.exports = {
           model: "Courts",
           key: "id",
         },
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
       },
       price: {
         allowNull: false,
