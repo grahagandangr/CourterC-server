@@ -1,44 +1,59 @@
 "use strict";
-module.exports = {
-  async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("OrderLists", {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER,
-      },
+const { Model } = require("sequelize");
+module.exports = (sequelize, DataTypes) => {
+  class OrderList extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+    }
+  }
+  OrderList.init(
+    {
       UserId: {
+        type: DataTypes.INTEGER,
         allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: "Users",
-          key: "id",
+        validate: {
+          notEmpty: {
+            msg: "UserId is required",
+          },
+          notNull: {
+            msg: "UserId is required",
+          },
         },
       },
       CourtCategoryId: {
+        type: DataTypes.INTEGER,
         allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: "CourtCategories",
-          key: "id",
+        validate: {
+          notEmpty: {
+            msg: "CourtCategoryId is required",
+          },
+          notNull: {
+            msg: "CourtCategoryId is required",
+          },
         },
       },
       status: {
+        type: DataTypes.STRING,
         allowNull: false,
-        type: Sequelize.STRING,
+        validate: {
+          notEmpty: {
+            msg: "Status is required",
+          },
+          notNull: {
+            msg: "Status is required",
+          },
+        },
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-    });
-  },
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("OrderLists");
-  },
+    },
+    {
+      sequelize,
+      modelName: "OrderList",
+    }
+  );
+  return OrderList;
 };
