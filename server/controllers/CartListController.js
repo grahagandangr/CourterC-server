@@ -3,8 +3,8 @@ const { CartList } = require("../models");
 class CartListController {
   static async getData(req, res, next) {
     try {
-      const { id } = req.params;
-      const cartList = await CartList.findOne({ where: { id } });
+      const { userId } = req.params;
+      const cartList = await CartList.findOne({ where: { userId } });
 
       res.status(200).json(cartList);
     } catch (error) {

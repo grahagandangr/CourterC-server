@@ -7,7 +7,7 @@ customerRouter.post("/login", UserController.login);
 customerRouter.post("/register", UserController.register);
 
 customerRouter.post("/cartList", CartListController.create);
-customerRouter.get("/cartList/:id", CartListController.getData);
+customerRouter.get("/cartList/:userId", CartListController.getData);
 customerRouter.delete("/cartList/:cartId", CartListController.delete);
 
 module.exports = customerRouter;
