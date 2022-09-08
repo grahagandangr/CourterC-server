@@ -1,0 +1,17 @@
+[
+    {
+        "status": "Pending",
+        "UserId": 2,
+        "CourtCategory": 3
+    },
+    {
+        "status": "Cancel",
+        "UserId": 2,
+        "CourtCategory": 1
+    },
+    {
+        "status": "Finish",
+        "UserId": 2,
+        "CourtCategory": 2
+    }
+]

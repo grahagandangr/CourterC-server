@@ -1,5 +1,5 @@
 "use strict";
-const court = require("../data/court.json");
+const court = require("../data/courts.json");
 module.exports = {
   async up(queryInterface, Sequelize) {
     /**
@@ -16,8 +16,6 @@ module.exports = {
         "ST_GeomFromText",
         `POINT(${el.location[0]} ${el.location[1]})`
       );
-      el.openHour = new Date();
-      el.closeHour = new Date();
       el.createdAt = new Date();
       el.updatedAt = new Date();
     });
