@@ -24,7 +24,11 @@ module.exports = class CourtController {
 
         const { name, description, UserId, openHour, closeHour, location } = req.body
 
-        const point =  { type: 'POINT', coordinates: [location]}
+        const lat = location[0]
+
+        const long = location[1]
+
+        const point =  { type: 'POINT', coordinates: [lat, long]}
 
         try {
 
@@ -50,13 +54,19 @@ module.exports = class CourtController {
 
         const { id } = req.params
 
+        const lat = location[0]
+
+        const long = location[1]
+
+        const point = {type: 'POINT', coordinates: [lat, long]}
+
         try {
 
             const findCourt = await Court.findByPk(id)
 
             if(!findCourt) throw {name: 'Not Found'}
 
-            const court = await Court.update({ name, description, UserId, openHour, closeHour, location }, {where: {
+            const court = await Court.update({ name, description, UserId, openHour, closeHour, location: point }, {where: {
 
                 id: findCourt.id
 
@@ -81,14 +91,7 @@ module.exports = class CourtController {
 
         try {
 
-            const court = await Court.findByPk(id, {
-                include: [
-                    {
-                        model: User,
-                        attributes: ['id', 'usename', 'email', 'role', 'phoneNumber', 'address', 'balance']
-                    }
-                ]
-            })
+            const court = await Court.findByPk(id)
             
             res.status(200).json({
                 message : 'success get detail',
