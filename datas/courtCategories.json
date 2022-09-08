@@ -20,49 +20,13 @@
         "price": 60000
     },
     {
-        "CourtId": 3,
+        "CourtId": 4,
         "CategoryId": 4,
         "price": 100000
     },
     {
-        "CourtId": 4,
-        "CategoryId": 7,
-        "price": 75000
-    },
-    {
-        "CourtId": 4,
-        "CategoryId": 8,
-        "price": 75000
-    },
-    {
-        "CourtId": 5,
-        "CategoryId": 8,
-        "price": 75000
-    },
-    {
-        "CourtId": 5,
-        "CategoryId": 7,
-        "price": 75000
-    },
-    {
-        "CourtId": 6,
-        "CategoryId": 6,
-        "price": 175000 
-    },
-    {
-        "CourtId": 7,
-        "CategoryId": 5,
-        "price": 80000
-    },
-    {
-        "CourtId": 8,
-        "CategoryId": 9,
-        "price": 90000
-    },
-    {
         "CourtId": 3,
         "CategoryId": 5,
-        "price": 85000 
+        "price": 175000
     }
-    
 ]
