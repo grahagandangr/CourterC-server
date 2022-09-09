@@ -9,7 +9,7 @@ module.exports = class CourtController {
             const court = await Court.findAll()
 
             res.status(200).json({
-                message: 'success get data court',
+                message: 'success get court',
                 court
             })
             
@@ -35,7 +35,7 @@ module.exports = class CourtController {
             const court = await Court.create({ name, description, UserId, openHour, closeHour, location: point})
 
             res.status(201).json({
-                message: 'success create data court',
+                message: 'success create court',
                 court
             })
 
@@ -73,7 +73,7 @@ module.exports = class CourtController {
             }})
 
             res.status(200).json({
-                message: 'success update court',
+                message: 'court updated',
                 court
             })
             
@@ -125,7 +125,7 @@ module.exports = class CourtController {
             res.status(200).json({
                 message: 'success delete court'
             })
-            
+
         } catch (error) {
 
             console.log(error)
