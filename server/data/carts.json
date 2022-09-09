@@ -1,0 +1,17 @@
+[
+    {
+        "CourtCategoryId": 1,
+        "UserId": 2,
+        "Date": "9/27/2022"
+    },
+    {
+        "CourtCategoryId": 3,
+        "UserId": 2,
+        "Date": "10/1/2022"
+    },
+    {
+        "CourtCategoryId": 2,
+        "UserId": 2,
+        "Date": "10/4/2022"
+    }
+]
