@@ -11,6 +11,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+<<<<<<< HEAD
 
     let data = require('../data/categories.json')
 
@@ -21,6 +22,8 @@ module.exports = {
     })
 
     await queryInterface.bulkInsert('Categories', data, {})
+=======
+>>>>>>> orderAndSchedule
   },
 
   async down (queryInterface, Sequelize) {
@@ -30,7 +33,10 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+<<<<<<< HEAD
 
     await queryInterface.bulkDelete('Categories')
+=======
+>>>>>>> orderAndSchedule
   }
 };

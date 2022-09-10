@@ -1,6 +1,10 @@
 [
     {
+<<<<<<< HEAD
         "name": "Basket",
+=======
+        "name": "Basketball",
+>>>>>>> orderAndSchedule
         "iconName": "basketball"
     },
     {
@@ -9,11 +13,19 @@
     },
     {
         "name": "Futsal",
+<<<<<<< HEAD
         "iconName": "soccer"
     },
     {
         "name": "Tennis",
         "iconName": "tennis-ball"
+=======
+        "iconName": "futsal"
+    },
+    {
+        "name": "Tennis",
+        "iconName": "tennis"
+>>>>>>> orderAndSchedule
     },
     {
         "name": "Golf",

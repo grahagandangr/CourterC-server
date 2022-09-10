@@ -11,6 +11,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+<<<<<<< HEAD
      let data = require('../data/orderDetail.json')
 
      data.forEach(el => {
@@ -20,6 +21,8 @@ module.exports = {
      })
  
      await queryInterface.bulkInsert('OrderDetails', data, {})
+=======
+>>>>>>> orderAndSchedule
   },
 
   async down (queryInterface, Sequelize) {
@@ -27,7 +30,12 @@ module.exports = {
      * Add commands to revert seed here.
      *
      * Example:
+<<<<<<< HEAD
      */
      await queryInterface.bulkDelete('OrderDetails', null, {});
+=======
+     * await queryInterface.bulkDelete('People', null, {});
+     */
+>>>>>>> orderAndSchedule
   }
 };

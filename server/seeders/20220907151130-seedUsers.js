@@ -1,5 +1,5 @@
 'use strict';
-
+let {hashPassword} = require('../helpers/index')
 module.exports = {
   async up (queryInterface, Sequelize) {
     /**
@@ -11,18 +11,15 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-<<<<<<< HEAD
-     let data = require('../data/order.json')
+   let user = require('../data/users.json')
+    user.forEach(el =>{
+    el.password = hashPassword(el.password)
+    el.createdAt = new Date()
+    el.updatedAt = new Date()
+    return el
+   })
+    await queryInterface.bulkInsert('Users', user)
 
-     data.forEach(el => {
- 
-       el.updatedAt = el.createdAt = new Date()
- 
-     })
- 
-     await queryInterface.bulkInsert('Orders', data, {})
-=======
->>>>>>> orderAndSchedule
   },
 
   async down (queryInterface, Sequelize) {
@@ -30,12 +27,9 @@ module.exports = {
      * Add commands to revert seed here.
      *
      * Example:
-<<<<<<< HEAD
-     */
-     await queryInterface.bulkDelete('Orders', null, {});
-=======
      * await queryInterface.bulkDelete('People', null, {});
      */
->>>>>>> orderAndSchedule
+     await queryInterface.bulkDelete('Users', null);
   }
+  
 };
