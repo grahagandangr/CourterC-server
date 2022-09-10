@@ -7,7 +7,13 @@ const customerRouter = require("express").Router();
 
 customerRouter.post("/login", UserController.login);
 customerRouter.post("/register", UserController.register);
-customerRouter.post("/payment", PaymentController.midtransPayment);
+
+customerRouter.use(authentication)
+customerRouter.get('/', (req, res) => res.send('masuk authen cussss'))
+customerRouter.post("/top-up", PaymentController.topUpBalance);
+customerRouter.post('/top-up/update-balance', PaymentController.updateBalance)
+customerRouter.post('/do-payment', PaymentController.doPayment)
+
 
 customerRouter.use(authentication);
 

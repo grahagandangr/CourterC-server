@@ -3,6 +3,6 @@ const ownerRouter = require('./ownerRouter')
 const customerRouter = require('./customerRouter')
 
 router.use('/owner', ownerRouter)
-router.use('/customer', customerRouter )
+router.use('/customer', customerRouter)
 
 module.exports = router

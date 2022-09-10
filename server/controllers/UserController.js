@@ -67,10 +67,12 @@ class UserController {
 
       const username = user.username;
       const id = user.id;
+      const role = user.role
       res.status(200).json({
         access_token,
         username,
         id,
+        role
       });
     } catch (error) {
         res.send(error)
