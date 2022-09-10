@@ -1,6 +1,7 @@
 [
     {
         "name": "Basketball",
+<<<<<<< HEAD
         "imageUrl": "https://imgs.search.brave.com/W5ZPL_1FezpGxW0qGZnz6i4mesT2mT8O8Xdg9Jmkdzs/rs:fit:900:600:1/g:ce/aHR0cHM6Ly9zYXR1/amFtLmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAxNS8xMC9t/ZW5nZW5hbC1zZWph/cmFoLXBlbWFpbi1i/b2xhLWJhc2tldC5q/cGc"
     },
     {
@@ -18,5 +19,24 @@
     {
         "name": "Golf",
         "imageUrl": "https://p4.wallpaperbetter.com/wallpaper/262/432/952/5bd1c71a2e397-wallpaper-preview.jpg"
+=======
+        "iconName": "basketball"
+    },
+    {
+        "name": "Badminton",
+        "iconName": "badminton"
+    },
+    {
+        "name": "Futsal",
+        "iconName": "futsal"
+    },
+    {
+        "name": "Tennis",
+        "iconName": "tennis"
+    },
+    {
+        "name": "Golf",
+        "iconName": "golf"
+>>>>>>> seedingDummy
     }
 ]

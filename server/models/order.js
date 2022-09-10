@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-'use strict';
-const {
-  Model
-} = require('sequelize');
-=======
 "use strict";
 const { Model } = require("sequelize");
->>>>>>> seedingDummy
 module.exports = (sequelize, DataTypes) => {
-  class Category extends Model {
+  class Order extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -18,49 +11,38 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-<<<<<<< HEAD
-  Category.init({
-    name: DataTypes.STRING,
-    imageUrl: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Category',
-  });
-  return Category;
-};
-=======
-  Category.init(
+  Order.init(
     {
-      name: {
-        type: DataTypes.STRING,
+      CourtCategoryId: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
           notEmpty: {
-            msg: "Category Name is required",
+            msg: "CourtCategoryId is required",
           },
           notNull: {
-            msg: "Category Name is required",
+            msg: "CourtCategoryId is required",
           },
         },
       },
-      iconName: {
-        type: DataTypes.STRING,
+      totalPrice: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
           notEmpty: {
-            msg: "Icon name is required",
+            msg: "Total Price is required",
           },
           notNull: {
-            msg: "Icon name is required",
+            msg: "Total Price is required",
           },
         },
       },
+      UserId: DataTypes.INTEGER,
     },
     {
       sequelize,
-      modelName: "Category",
+      modelName: "Order",
     }
   );
-  return Category;
+  return Order;
 };
->>>>>>> seedingDummy

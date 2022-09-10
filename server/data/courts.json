@@ -5,7 +5,12 @@
         "UserId": 1,
         "openHour": "09:00",
         "closeHour": "23:00",
+<<<<<<< HEAD
         "location": "-6.287204, 106.839076"
+=======
+        "address": "jl. earth",
+        "location": [-6.287204, 106.839076]
+>>>>>>> seedingDummy
     },
     {
         "name": "GOR Cideng",
@@ -13,7 +18,12 @@
         "UserId": 4,
         "openHour": "09:00",
         "closeHour": "23:00",
+<<<<<<< HEAD
         "location": "-6.1789728520833, 106.81201425438192"
+=======
+        "address": "jl. earth",
+        "location": [-6.1789728520833, 106.81201425438192]
+>>>>>>> seedingDummy
     },
     {
         "name": "Golf station",
@@ -21,7 +31,12 @@
         "UserId": 7,
         "openHour": "09:00",
         "closeHour": "18:00",
+<<<<<<< HEAD
         "location": "-6.181420269523423, 106.76094312803146"
+=======
+        "address": "jl. earth",
+        "location": [-6.181420269523423, 106.76094312803146]
+>>>>>>> seedingDummy
     },
     {
         "name": "Tennis Center Bavarian",
@@ -29,7 +44,12 @@
         "UserId": 7,
         "openHour": "09:00",
         "closeHour": "20:00",
+<<<<<<< HEAD
         "location": "-6.182017590816576, 106.75836820737936"
+=======
+        "address": "jl. earth",
+        "location": [-6.182017590816576, 106.75836820737936]
+>>>>>>> seedingDummy
     }
     
 ]

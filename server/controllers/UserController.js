@@ -4,10 +4,22 @@ const { User } = require("../models");
 class UserController {
   static async register(req, res, next) {
     try {
+<<<<<<< HEAD
       const { username, email, password, phoneNumber, role, address } =
         req.body;
         console.log(req.body, '====');
 
+=======
+      const { username, email, password, phoneNumber, role, address} =
+        req.body;
+        console.log(req.body, '====');
+
+        let userLocation = {
+          type: "Point",
+          coordinates: [0, 0],
+        };
+
+>>>>>>> seedingDummy
       if (!password) {
         throw { name: "Password is required" };
       }
@@ -20,6 +32,10 @@ class UserController {
         role,
         address,
         balance: 0,
+<<<<<<< HEAD
+=======
+        location: userLocation,
+>>>>>>> seedingDummy
       });
 
       res.status(201).json({

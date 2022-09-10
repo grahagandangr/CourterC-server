@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> seedingDummy
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
@@ -14,15 +17,26 @@ module.exports = (sequelize, DataTypes) => {
   }
   Image.init(
     {
+<<<<<<< HEAD
       imageUrl: {
+=======
+      imgUrl: {
+>>>>>>> seedingDummy
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
           notEmpty: {
+<<<<<<< HEAD
             msg: "imageUrl is required",
           },
           notNull: {
             msg: "imageUrl is required",
+=======
+            msg: "Image Url is required",
+          },
+          notNull: {
+            msg: "Image Url is required",
+>>>>>>> seedingDummy
           },
         },
       },

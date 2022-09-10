@@ -37,6 +37,7 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+<<<<<<< HEAD
       UserId: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -85,6 +86,57 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+=======
+      location: {
+        type: DataTypes.GEOMETRY,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Location is required",
+          },
+          notNull: {
+            msg: "Location is required",
+          },
+        },
+      },
+      address: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Address is required",
+          },
+          notNull: {
+            msg: "Address is required",
+          },
+        },
+      },
+      openHour: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Open Hour is required",
+          },
+          notNull: {
+            msg: "Open Hour is required",
+          },
+        },
+      },
+      closeHour: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Close Hour is required",
+          },
+          notNull: {
+            msg: "Close Hour is required",
+          },
+        },
+      },
+      UserId: DataTypes.INTEGER,
+>>>>>>> seedingDummy
     },
     {
       sequelize,
