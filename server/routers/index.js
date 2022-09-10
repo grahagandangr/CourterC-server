@@ -5,6 +5,4 @@ const customerRouter = require('./customerRouter')
 router.use('/owner', ownerRouter)
 router.use('/customer', customerRouter )
 
-router.use('/courts', courtRouter)
-
 module.exports = router
