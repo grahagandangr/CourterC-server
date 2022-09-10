@@ -6,10 +6,14 @@
         "role": "owner",
         "phoneNumber": "0822653535",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "address": "-6.1744370847046195, 106.78978910346592",
 =======
         "location":[0, 0],
 >>>>>>> seedingDummy
+=======
+        "location":[0, 0],
+>>>>>>> 56971f3fb7898ddfcab026d954f89c85ee05a574
         "balance": 0
     },
     {
@@ -19,10 +23,14 @@
         "role": "customer",
         "phoneNumber": "0822653535",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "address": "-6.185422, 106.837820",
 =======
         "location": [0, 0],
 >>>>>>> seedingDummy
+=======
+        "location": [0, 0],
+>>>>>>> 56971f3fb7898ddfcab026d954f89c85ee05a574
         "balance": 0
     },
     {
@@ -32,10 +40,14 @@
         "role": "customer",
         "phoneNumber": "0822653535",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "address": "-6.196255, 106.744988",
 =======
         "location": [0, 0],
 >>>>>>> seedingDummy
+=======
+        "location": [0, 0],
+>>>>>>> 56971f3fb7898ddfcab026d954f89c85ee05a574
         "balance": 0
     },
     {
@@ -45,10 +57,14 @@
         "role": "owner",
         "phoneNumber": "0822653295",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "address": "-6.176120787662686, 106.79195057661249",
 =======
         "location": [0, 0],
 >>>>>>> seedingDummy
+=======
+        "location": [0, 0],
+>>>>>>> 56971f3fb7898ddfcab026d954f89c85ee05a574
         "balance": 0
     },
     {
@@ -58,10 +74,14 @@
         "role": "customer",
         "phoneNumber": "0822665535",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "address": "-6.171018560640257, 106.777180672719",
 =======
         "location": [0, 0],
 >>>>>>> seedingDummy
+=======
+        "location": [0, 0],
+>>>>>>> 56971f3fb7898ddfcab026d954f89c85ee05a574
         "balance": 0
     },
     {
@@ -71,10 +91,14 @@
         "role": "customer",
         "phoneNumber": "0822653535",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "address": "-6.150860, 106.910190",
 =======
         "location": [0, 0],
 >>>>>>> seedingDummy
+=======
+        "location": [0, 0],
+>>>>>>> 56971f3fb7898ddfcab026d954f89c85ee05a574
         "balance": 0
     },
     {
@@ -84,10 +108,14 @@
         "role": "owner",
         "phoneNumber": "08226532335",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "address": "-6.290419482461463, 106.80463295423974",
 =======
         "location": [0, 0],
 >>>>>>> seedingDummy
+=======
+        "location": [0, 0],
+>>>>>>> 56971f3fb7898ddfcab026d954f89c85ee05a574
         "balance": 0
     }
 ]

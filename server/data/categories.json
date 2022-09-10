@@ -2,22 +2,27 @@
     {
         "name": "Basketball",
 <<<<<<< HEAD
+<<<<<<< HEAD
         "imageUrl": "https://imgs.search.brave.com/W5ZPL_1FezpGxW0qGZnz6i4mesT2mT8O8Xdg9Jmkdzs/rs:fit:900:600:1/g:ce/aHR0cHM6Ly9zYXR1/amFtLmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAxNS8xMC9t/ZW5nZW5hbC1zZWph/cmFoLXBlbWFpbi1i/b2xhLWJhc2tldC5q/cGc"
+=======
+        "iconName": "basketball"
+>>>>>>> 56971f3fb7898ddfcab026d954f89c85ee05a574
     },
     {
         "name": "Badminton",
-        "imageUrl": "https://imgs.search.brave.com/9KsTmvaH0-xeQXAK65WRD3x-UqmbanI3r1_l6ykmknI/rs:fit:1200:1200:1/g:ce/aHR0cDovL2h5cGUu/bXkvd3AtY29udGVu/dC91cGxvYWRzLzIw/MTYvMDUvMTYxXzEu/anBn"
+        "iconName": "badminton"
     },
     {
         "name": "Futsal",
-        "imageUrl": "https://imgs.search.brave.com/ZbT9r8zEDRElItFkSDg33wH2xSvVHAuegQ1EBjvPpfQ/rs:fit:736:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5T/TWYyMzZvbWFQbFV4/b003NG5ta2d3SGFF/eCZwaWQ9QXBp"
+        "iconName": "futsal"
     },
     {
         "name": "Tennis",
-        "imageUrl": "https://p4.wallpaperbetter.com/wallpaper/1023/180/9/5bd4157d046f4-wallpaper-preview.jpg"
+        "iconName": "tennis"
     },
     {
         "name": "Golf",
+<<<<<<< HEAD
         "imageUrl": "https://p4.wallpaperbetter.com/wallpaper/262/432/952/5bd1c71a2e397-wallpaper-preview.jpg"
 =======
         "iconName": "basketball"
@@ -38,5 +43,8 @@
         "name": "Golf",
         "iconName": "golf"
 >>>>>>> seedingDummy
+=======
+        "iconName": "golf"
+>>>>>>> 56971f3fb7898ddfcab026d954f89c85ee05a574
     }
 ]
