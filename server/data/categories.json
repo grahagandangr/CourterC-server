@@ -10,11 +10,11 @@
     },
     {
         "name": "Futsal",
-        "iconName": "futsal"
+        "iconName": "soccer"
     },
     {
         "name": "Tennis",
-        "iconName": "tennis"
+        "iconName": "tennis-ball"
     },
     {
         "name": "Golf",
