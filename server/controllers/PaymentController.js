@@ -1,5 +1,5 @@
 const snap = require("../helpers/midtrans");
-const { User } = require("../models");
+const { User, OrderDetail } = require("../models");
 
 class PaymentController {
   static async topUpBalance(req, res, next) {
@@ -79,9 +79,9 @@ class PaymentController {
     try {
       const { id, email, username } = req.user;
       const { totalPrice } = req.body;
-  
+
       const user = await User.findByPk(id);
-   
+
       const userBalance = await User.update(
         {
           balance: user.balance - Number(totalPrice),
@@ -91,13 +91,40 @@ class PaymentController {
         }
       );
       res.status(200).json({
-        message: 'Success'
-      })
+        message: "Success",
+      });
     } catch (error) {
       console.log(error);
     }
   }
-  
+
+  static async cancelOrder(req, res, next) {
+    try {
+      const { id, email, username } = req.user;
+      const user = await User.findByPk(id);
+      const orderDetail = await OrderDetail.findByPk(1);
+      const updateBalance = await User.update(
+        {
+          balance: user.balance + orderDetail.price,
+        },
+        {
+          where: { id },
+        }
+      );
+
+      const order = await OrderDetail.update(
+        { status: "Cancelled" },
+        {
+          where: { id: 1 },
+        }
+      );
+      res.status(200).json({
+        msg: "Success cancelled order",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 module.exports = PaymentController;

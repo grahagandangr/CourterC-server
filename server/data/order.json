@@ -1,27 +1,7 @@
 [
     {
         "CourtCategoryId": 1,
-        "totalPrice": 500000,
-        "UserId": 1
-    },
-    {
-        "CourtCategoryId": 2,
-        "totalPrice": 500000,
-        "UserId": 1
-    },
-    {
-        "CourtCategoryId": 3,
-        "totalPrice": 500000,
-        "UserId": 1
-    },
-    {
-        "CourtCategoryId": 4,
-        "totalPrice": 500000,
-        "UserId": 1
-    },
-    {
-        "CourtCategoryId": 5,
-        "totalPrice": 500000,
+        "totalPrice": 750000,
         "UserId": 1
     }
 ]

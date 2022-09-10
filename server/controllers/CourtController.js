@@ -1,5 +1,3 @@
-
-const { Court } = require('../models')
 const { Court, User } = require('../models')
 
 module.exports = class CourtController {
