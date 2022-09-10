@@ -24,15 +24,17 @@ module.exports = class CourtCategoryController {
 
     static async createCourtCategory (req, res, next){
 
-        const { CourtId, CategoryId, price } = req.body
+        const { CourtId, CategoryId, price, imgUrl } = req.body
 
         try {
 
             const created = await CourtCategory.create({ CourtId, CategoryId, price})
 
+            const image = await Image.create({ imgUrl, CourtCategoryId: created.id})
+
             res.status(201).json({
-                message: 'success create court category',
-                created
+                message: 'success create court category, image',
+                created, image
             })
             
         } catch (error) {
@@ -82,7 +84,6 @@ module.exports = class CourtCategoryController {
                 include: [
                     {
                         model: Court,
-
                     },
                     {
                         model: Category
@@ -90,8 +91,14 @@ module.exports = class CourtCategoryController {
                 ]
             })
 
+            const image = await Image.findOne({
+                where: {
+                    CourtCategoryId: courtCategory.id 
+                }
+            })
+
             res.status(200).json({
-                courtCategory
+                courtCategory, image
             })
             
         } catch (error) {
@@ -124,45 +131,25 @@ module.exports = class CourtCategoryController {
         
     }
 
-    static async getImage (req, res, next){
+    // static async getImage (req, res, next){
 
-        try {
+    //     try {
 
-            const image = await Image.findAll({
-                include: [CourtCategory]
-            })
+    //         const image = await Image.findAll({
+    //             include: [CourtCategory]
+    //         })
 
-            res.status(200).json({
-                image
-            })
+    //         res.status(200).json({
+    //             image
+    //         })
             
-        } catch (error) {
+    //     } catch (error) {
 
-            console.log(error)
+    //         console.log(error)
             
-        }
+    //     }
 
-    }
+    // }
 
-    static async createImage (req, res, next){
-
-        const { imgUrl, CourtCategoryId } = req.body
-
-        try {
-
-            const image = await Image.create({ imgUrl, CourtCategoryId })
-
-            res.status(201).json({
-                message: 'image created',
-                image
-            })
-            
-        } catch (error) {
-
-            console.log(error)
-            
-        }
-
-    }
     
 }

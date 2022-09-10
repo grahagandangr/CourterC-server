@@ -1,5 +1,3 @@
-
-const { Court } = require('../models')
 const { Court, User } = require('../models')
 
 module.exports = class CourtController {
@@ -8,8 +6,7 @@ module.exports = class CourtController {
 
         try {
 
-            const court  = await Court.findAll()
-
+            const court = await Court.findAll()
 
             res.status(200).json({
                 message: 'success get court',
@@ -23,30 +20,83 @@ module.exports = class CourtController {
         }
     }
 
-    static async createCourt(req, res, next){
+    static async createCourt (req, res, next){
 
-        // "name": "GOR Suluh",
-        // "description": "GO GO Sport",
-        // "UserId": 1,
-        // "openHour": "09:00",
-        // "closeHour": "23:00",
-        // "address": "jl. earth",
-        // "location": [-6.287204, 106.839076]
+        const { name, description, UserId, openHour, closeHour, location } = req.body
 
-        const { name, description, openHour, closeHour, address, location } = req.body
+        const lat = location[0]
 
-        const UserId = req.user.id
+        const long = location[1]
 
-        const [lat, long] = location
-
-        const point = { type: 'POINT', coordinates: [lat, long]}
+        const point =  { type: 'POINT', coordinates: [lat, long]}
 
         try {
 
-            const court = await Court.create({ name, description, UserId, openHour, closeHour, address, location: point })
+            const court = await Court.create({ name, description, UserId, openHour, closeHour, location: point})
 
             res.status(201).json({
-                message: "success create court",
+                message: 'success create court',
+                court
+            })
+
+            
+        } catch (error) {
+
+            console.log(error)
+            
+        }
+        
+    }
+
+    static async updateCourt (req, res, next){
+
+        const { name, description, UserId, openHour, closeHour, location } = req.body
+
+        const { id } = req.params
+
+        const lat = location[0]
+
+        const long = location[1]
+
+        const point = {type: 'POINT', coordinates: [lat, long]}
+
+        try {
+
+            const findCourt = await Court.findByPk(id)
+
+            if(!findCourt) throw {name: 'Not Found'}
+
+            const court = await Court.update({ name, description, UserId, openHour, closeHour, location: point }, {where: {
+
+                id: findCourt.id
+
+            }})
+
+            res.status(200).json({
+                message: 'court updated',
+                court
+            })
+            
+        } catch (error) {
+
+            console.log(error)
+            
+        }
+        
+    }
+
+    static async getDetail (req, res, next){
+
+        const { id } = req.params
+
+        try {
+
+            const court = await Court.findOne({
+                where: { id }
+            })
+            
+            res.status(200).json({
+                message : 'success get detail',
                 court
             })
 
@@ -55,8 +105,36 @@ module.exports = class CourtController {
             console.log(error)
             
         }
+        
+    }
 
-}
+    static async deleteCourt (req, res, next){
+
+        const { id } = req.params
+
+        try {
+
+            const findCourt = await Court.findByPk(id)
+
+            if(!findCourt) throw {name: 'Not Found'}
+
+            await Court.destroy({
+                where: {
+                    id: findCourt.id
+                }
+            })
+
+            res.status(200).json({
+                message: 'success delete court'
+            })
+
+        } catch (error) {
+
+            console.log(error)
+            
+        }
+        
+    }
 }
 
         

@@ -6,6 +6,7 @@ const CourtDetailController = require("../controllers/CourtDetailController");
 const OrderScheduleController = require("../controllers/OrderScheduleController");
 
 const authentication = require("../middlewares/authentication");
+const CourtCategoryController = require("../controllers/CourtCategoryController");
 const customerRouter = require("express").Router();
 
 customerRouter.post("/login", UserController.login);
@@ -19,6 +20,11 @@ customerRouter.get("/court/orderList", OrderScheduleController.getOrder);
 customerRouter.patch("/court/cancelOrder", OrderScheduleController.cancelOrder);
 customerRouter.get("/court/:id", CourtDetailController.getDetailCourt);
 
+customerRouter.get('/court', CourtCategoryController.getAll)
+
 // customerRouter.use(authentication);
+
+
+
 
 module.exports = customerRouter;
