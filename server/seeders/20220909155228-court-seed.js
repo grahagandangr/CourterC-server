@@ -11,6 +11,13 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+
+     el.location = Sequelize.fn(
+      "ST_GeomFromText",
+      `POINT(${el.location[0]} ${el.location[1]})`
+    );
+    el.createdAt = new Date();
+    el.updatedAt = new Date();
   },
 
   async down (queryInterface, Sequelize) {
