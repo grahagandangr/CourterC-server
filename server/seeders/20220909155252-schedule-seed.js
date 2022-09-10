@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     /**
      * Add seed commands here.
      *
@@ -10,32 +10,23 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
-<<<<<<< HEAD
-     let data = require('../data/schedule.json')
+     */
+    let data = require("../data/schedule.json");
 
-     data.forEach(el => {
- 
-       el.updatedAt = el.createdAt = new Date()
- 
-     })
- 
-     await queryInterface.bulkInsert('Schedules', data, {})
-=======
->>>>>>> orderAndSchedule
+    data.forEach((el) => {
+      el.updatedAt = el.createdAt = new Date();
+    });
+
+    await queryInterface.bulkInsert("Schedules", data, {});
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
      * Example:
 <<<<<<< HEAD
      */
-     await queryInterface.bulkDelete('Schedules', null, {});
-=======
-     * await queryInterface.bulkDelete('People', null, {});
-     */
->>>>>>> orderAndSchedule
-  }
+    await queryInterface.bulkDelete("Schedules", null, {});
+  },
 };

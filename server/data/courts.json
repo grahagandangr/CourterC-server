@@ -3,13 +3,10 @@
         "name": "GOR Suluh",
         "description": "GO GO Sport",
         "UserId": 1,
-<<<<<<< HEAD
+
         "openHour": 9,
         "closeHour": 23,
-=======
-        "openHour": "09:00",
-        "closeHour": "23:00",
->>>>>>> orderAndSchedule
+
         "address": "jl. earth",
         "location": [-6.287204, 106.839076]
     },
@@ -17,13 +14,10 @@
         "name": "GOR Cideng",
         "description": "Play with your friend and family here",
         "UserId": 4,
-<<<<<<< HEAD
+
         "openHour": 9,
         "closeHour": 23,
-=======
-        "openHour": "09:00",
-        "closeHour": "23:00",
->>>>>>> orderAndSchedule
+
         "address": "jl. earth",
         "location": [-6.1789728520833, 106.81201425438192]
     },
@@ -31,13 +25,10 @@
         "name": "Golf station",
         "description": "Relax and live your live in the middle of a humongous green field",
         "UserId": 7,
-<<<<<<< HEAD
+
         "openHour": 9,
         "closeHour": 18,
-=======
-        "openHour": "09:00",
-        "closeHour": "18:00",
->>>>>>> orderAndSchedule
+
         "address": "jl. earth",
         "location": [-6.181420269523423, 106.76094312803146]
     },
@@ -45,13 +36,10 @@
         "name": "Tennis Center Bavarian",
         "description": "Have fun and bit fit with us!!",
         "UserId": 7,
-<<<<<<< HEAD
+
         "openHour": 9,
         "closeHour": 20,
-=======
-        "openHour": "09:00",
-        "closeHour": "20:00",
->>>>>>> orderAndSchedule
+
         "address": "jl. earth",
         "location": [-6.182017590816576, 106.75836820737936]
     }

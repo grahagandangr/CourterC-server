@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     /**
      * Add seed commands here.
      *
@@ -10,33 +10,24 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
-<<<<<<< HEAD
+     */
 
-     let data = require('../data/images.json')
+    let data = require("../data/images.json");
 
-     data.forEach(el => {
- 
-       el.updatedAt = el.createdAt = new Date()
- 
-     })
- 
-     await queryInterface.bulkInsert('Images', data, {})
-=======
->>>>>>> orderAndSchedule
+    data.forEach((el) => {
+      el.updatedAt = el.createdAt = new Date();
+    });
+
+    await queryInterface.bulkInsert("Images", data, {});
   },
 
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
      * Example:
-<<<<<<< HEAD
+
      */
-     await queryInterface.bulkDelete('Images', null, {});
-=======
-     * await queryInterface.bulkDelete('People', null, {});
-     */
->>>>>>> orderAndSchedule
-  }
+    await queryInterface.bulkDelete("Images", null, {});
+  },
 };
