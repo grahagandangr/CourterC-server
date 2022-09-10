@@ -1,25 +1,23 @@
 [
-    {
-        "name": "Basketball",
-        "iconName": "basketball"
-    },
-    {
-        "name": "Badminton",
-        "iconName": "badminton"
-    },
-    {
-        "name": "Futsal",
+  {
+    "name": "Basket",
+    "iconName": "basketball"
+  },
+  {
+    "name": "Badminton",
+    "iconName": "badminton"
+  },
+  {
+    "name": "Futsal",
+    "iconName": "soccer"
+  },
+  {
+    "name": "Tennis",
+    "iconName": "tennis-ball"
+  },
 
-        "iconName": "soccer"
-    },
-    {
-        "name": "Tennis",
-        "iconName": "tennis-ball"
-
-    },
-   
-    {
-        "name": "Golf",
-        "iconName": "golf"
-    }
+  {
+    "name": "Golf",
+    "iconName": "golf"
+  }
 ]

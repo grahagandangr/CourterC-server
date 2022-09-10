@@ -62,20 +62,6 @@ class Controller {
     }
   }
 
-  static async cancelOrder(req, res, next) {
-    try {
-      const order = await OrderDetail.update(
-        { status: "Cancelled" },
-        {
-          where: { id: 5 },
-        }
-      );
-      res.status(200).json({
-        msg: "Success cancelled order",
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
+
 }
 module.exports = Controller;

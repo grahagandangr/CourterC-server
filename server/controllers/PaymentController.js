@@ -1,17 +1,19 @@
 const snap = require("../helpers/midtrans");
+const { User, OrderDetail } = require("../models");
 
 class PaymentController {
-  static async midtransPayment(req, res, next) {
+  static async topUpBalance(req, res, next) {
     try {
-      const { email, amount } = req.body;
-
+      const inputAmount = +req.body.amount;
+      const { id, email, username } = req.user;
       let parameter = {
         transaction_details: {
           order_id: new Date().getTime(),
-          gross_amount: amount,
+          gross_amount: Number(req.body.amount),
         },
         customer_details: {
           email: email,
+          name: username,
         },
         enabled_payments: [
           "credit_card",
@@ -39,9 +41,85 @@ class PaymentController {
 
       let transactionToken = transaction.token;
       let transactionRedirectUrl = transaction.redirect_url;
+
+      req.inputAmount = inputAmount;
+
       res.status(200).json({
         token: transactionToken,
         redirect_url: transactionRedirectUrl,
+        inputAmount,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  static async updateBalance(req, res) {
+    try {
+      const inputAmount = req.inputAmount;
+      console.log(inputAmount, "+++++");
+      const { id, email, username } = req.user;
+
+      const { gross_amount } = req.body;
+      const user = await User.findByPk(id);
+      let updateBalance = await User.update(
+        { balance: user.balance + Number(gross_amount) },
+        { where: { id } }
+      );
+
+      console.log(updateBalance);
+
+      res.status(200).json({ message: "Success" });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  static async doPayment(req, res) {
+    try {
+      const { id, email, username } = req.user;
+      const { totalPrice } = req.body;
+
+      const user = await User.findByPk(id);
+
+      const userBalance = await User.update(
+        {
+          balance: user.balance - Number(totalPrice),
+        },
+        {
+          where: { id },
+        }
+      );
+      res.status(200).json({
+        message: "Success",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  static async cancelOrder(req, res, next) {
+    try {
+      const { id, email, username } = req.user;
+      const user = await User.findByPk(id);
+      const orderDetail = await OrderDetail.findByPk(1);
+      const updateBalance = await User.update(
+        {
+          balance: user.balance + orderDetail.price,
+        },
+        {
+          where: { id },
+        }
+      );
+
+      const order = await OrderDetail.update(
+        { status: "Cancelled" },
+        {
+          where: { id: 1 },
+        }
+      );
+      res.status(200).json({
+        msg: "Success cancelled order",
       });
     } catch (error) {
       console.log(error);

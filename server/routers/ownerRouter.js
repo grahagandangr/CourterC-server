@@ -1,4 +1,5 @@
 const CourtCategoryController = require("../controllers/CourtCategoryController");
+const CourtController = require("../controllers/CourtController");
 const UserController = require("../controllers/UserController");
 const authentication = require("../middlewares/authentication");
 
@@ -16,6 +17,12 @@ ownerRouter.delete('/courtCategories/:id', CourtCategoryController.deleteCourtCa
 ownerRouter.post('/courtCategories', CourtCategoryController.createCourtCategory)
 
 
+
+ownerRouter.get('/', CourtController.getAll)
+// ownerRouter.get('/:id', CourtController.getDetail)
+// ownerRouter.post('/', CourtController.createCourt)
+// ownerRouter.put('/:id', CourtController.updateCourt)
+// ownerRouter.delete('/:id', CourtController.deleteCourt)
 
 
 

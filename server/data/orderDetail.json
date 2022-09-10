@@ -8,6 +8,7 @@
         "price": 250000
     },
     {
+        "OrderId": 1,
         "status": "Cancel",
         "ScheduleId": 2,
         "date": "2022-09-09T15:44:31.256Z",
@@ -15,6 +16,7 @@
         "price": 250000
     },
     {
+        "OrderId": 1,
         "status": "Finish",
         "ScheduleId": 3,
         "date": "2022-09-09T15:44:31.256Z",
