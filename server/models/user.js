@@ -38,10 +38,6 @@ module.exports = (sequelize, DataTypes) => {
           notNull: {
             msg: "Email is required",
           },
-<<<<<<< HEAD
-        
-=======
->>>>>>> seedingDummy
         },
       },
       password: {
@@ -63,13 +59,19 @@ module.exports = (sequelize, DataTypes) => {
       role: DataTypes.STRING,
       phoneNumber: DataTypes.STRING,
       address: DataTypes.STRING,
-<<<<<<< HEAD
-      address: DataTypes.TEXT,
+      location: {
+        type: DataTypes.GEOMETRY,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Location is required",
+          },
+          notNull: {
+            msg: "Location is required",
+          },
+        },
+      },
       balance: DataTypes.INTEGER,
-=======
-      balance: DataTypes.INTEGER,
-      location: DataTypes.GEOMETRY,
->>>>>>> seedingDummy
     },
     {
       sequelize,
