@@ -28,7 +28,6 @@ module.exports = {
         onDelete: "cascade",
       },
       OrderId: {
-        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: "Orders",
