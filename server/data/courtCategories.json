@@ -1,0 +1,32 @@
+[
+    {
+        "CourtId": 1,
+        "CategoryId": 2,
+        "price": 50000
+    },
+    {
+        "CourtId": 1,
+        "CategoryId": 3,
+        "price": 70000
+    },
+    {
+        "CourtId": 2,
+        "CategoryId": 1,
+        "price": 60000
+    },
+    {
+        "CourtId": 2,
+        "CategoryId": 3,
+        "price": 60000
+    },
+    {
+        "CourtId": 4,
+        "CategoryId": 4,
+        "price": 100000
+    },
+    {
+        "CourtId": 3,
+        "CategoryId": 5,
+        "price": 175000
+    }
+]
