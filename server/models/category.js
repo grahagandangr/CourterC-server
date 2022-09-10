@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 "use strict";
 const { Model } = require("sequelize");
+=======
+'use strict';
+const {
+  Model
+} = require('sequelize');
+>>>>>>> 858c32a4aee68f060962c5eb1de571c398608dd3
 module.exports = (sequelize, DataTypes) => {
   class Category extends Model {
     /**
@@ -11,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
+<<<<<<< HEAD
   Category.init(
     {
       name: {
@@ -45,3 +53,14 @@ module.exports = (sequelize, DataTypes) => {
   );
   return Category;
 };
+=======
+  Category.init({
+    name: DataTypes.STRING,
+    imageUrl: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'Category',
+  });
+  return Category;
+};
+>>>>>>> 858c32a4aee68f060962c5eb1de571c398608dd3

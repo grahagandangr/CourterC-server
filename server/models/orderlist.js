@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 858c32a4aee68f060962c5eb1de571c398608dd3
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Image extends Model {
+  class OrderList extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -15,28 +11,17 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Image.init(
+  OrderList.init(
     {
-<<<<<<< HEAD
-      imgUrl: {
-=======
-      imageUrl: {
->>>>>>> 858c32a4aee68f060962c5eb1de571c398608dd3
-        type: DataTypes.STRING,
+      UserId: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
           notEmpty: {
-<<<<<<< HEAD
-            msg: "Image Url is required",
+            msg: "UserId is required",
           },
           notNull: {
-            msg: "Image Url is required",
-=======
-            msg: "imageUrl is required",
-          },
-          notNull: {
-            msg: "imageUrl is required",
->>>>>>> 858c32a4aee68f060962c5eb1de571c398608dd3
+            msg: "UserId is required",
           },
         },
       },
@@ -52,11 +37,23 @@ module.exports = (sequelize, DataTypes) => {
           },
         },
       },
+      status: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Status is required",
+          },
+          notNull: {
+            msg: "Status is required",
+          },
+        },
+      },
     },
     {
       sequelize,
-      modelName: "Image",
+      modelName: "OrderList",
     }
   );
-  return Image;
+  return OrderList;
 };

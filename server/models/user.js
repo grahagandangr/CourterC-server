@@ -28,9 +28,12 @@ module.exports = (sequelize, DataTypes) => {
       email: {
         type: DataTypes.STRING,
         allowNull: false,
+<<<<<<< HEAD
         unique: {
           msg: "Email already used",
         },
+=======
+>>>>>>> 858c32a4aee68f060962c5eb1de571c398608dd3
         validate: {
           notEmpty: {
             msg: "Email is required",
@@ -38,6 +41,12 @@ module.exports = (sequelize, DataTypes) => {
           notNull: {
             msg: "Email is required",
           },
+<<<<<<< HEAD
+=======
+          unique: {
+            msg: "Email already used",
+          },
+>>>>>>> 858c32a4aee68f060962c5eb1de571c398608dd3
         },
       },
       password: {
@@ -59,8 +68,13 @@ module.exports = (sequelize, DataTypes) => {
       role: DataTypes.STRING,
       phoneNumber: DataTypes.STRING,
       address: DataTypes.STRING,
+<<<<<<< HEAD
       balance: DataTypes.INTEGER,
       location: DataTypes.GEOMETRY,
+=======
+      address: DataTypes.TEXT,
+      balance: DataTypes.INTEGER,
+>>>>>>> 858c32a4aee68f060962c5eb1de571c398608dd3
     },
     {
       sequelize,

@@ -11,6 +11,14 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+     let user = require('../data/users.json')
+     user.forEach(el =>{
+     el.password = hashPassword(el.password)
+     el.createdAt = new Date()
+     el.updatedAt = new Date()
+     return el
+    })
+     await queryInterface.bulkInsert('Users', user)
   },
 
   async down (queryInterface, Sequelize) {
@@ -20,5 +28,7 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+
+     await queryInterface.bulkDelete('Users', null, {})
   }
 };

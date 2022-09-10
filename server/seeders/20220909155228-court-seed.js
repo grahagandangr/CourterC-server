@@ -11,14 +11,19 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+    let court = require('../data/courts.json')
 
-     el.location = Sequelize.fn(
-      "ST_GeomFromText",
-      `POINT(${el.location[0]} ${el.location[1]})`
-    );
-    el.createdAt = new Date();
-    el.updatedAt = new Date();
+     court.forEach((el) => {
+      el.location = Sequelize.fn(
+        "ST_GeomFromText",
+        `POINT(${el.location[0]} ${el.location[1]})`
+      );
+      el.createdAt = new Date();
+      el.updatedAt = new Date();
+    });
+    await queryInterface.bulkInsert("Courts", court, {});
   },
+
 
   async down (queryInterface, Sequelize) {
     /**
@@ -27,5 +32,7 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+
+     await queryInterface.bulkDelete('Courts', null, {})
   }
 };
