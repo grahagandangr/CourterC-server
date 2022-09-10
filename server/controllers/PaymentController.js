@@ -79,7 +79,7 @@ class PaymentController {
     try {
       const { id, email, username } = req.user;
       const { totalPrice } = req.body;
-      console.log(totalPrice, '<<<<<<<<<<<');
+  
       const user = await User.findByPk(id);
    
       const userBalance = await User.update(
@@ -97,6 +97,7 @@ class PaymentController {
       console.log(error);
     }
   }
+  
 }
 
 module.exports = PaymentController;
