@@ -1,4 +1,6 @@
+
 const { Court } = require('../models')
+const { Court, User } = require('../models')
 
 module.exports = class CourtController {
 
@@ -8,7 +10,9 @@ module.exports = class CourtController {
 
             const court  = await Court.findAll()
 
+
             res.status(200).json({
+                message: 'success get court',
                 court
             })
             
@@ -45,11 +49,15 @@ module.exports = class CourtController {
                 message: "success create court",
                 court
             })
-            
+
         } catch (error) {
 
             console.log(error)
             
         }
-    }
+
 }
+}
+
+        
+

@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 858c32a4aee68f060962c5eb1de571c398608dd3
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Image extends Model {
+  class CartList extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -15,28 +11,29 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Image.init(
+  CartList.init(
     {
-<<<<<<< HEAD
-      imgUrl: {
-=======
-      imageUrl: {
->>>>>>> 858c32a4aee68f060962c5eb1de571c398608dd3
-        type: DataTypes.STRING,
+      UserId: {
+        type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
           notEmpty: {
-<<<<<<< HEAD
-            msg: "Image Url is required",
+            msg: "UserId is required",
           },
           notNull: {
-            msg: "Image Url is required",
-=======
-            msg: "imageUrl is required",
+            msg: "UserId is required",
+          },
+        },
+      },
+      date: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "date is required",
           },
           notNull: {
-            msg: "imageUrl is required",
->>>>>>> 858c32a4aee68f060962c5eb1de571c398608dd3
+            msg: "date is required",
           },
         },
       },
@@ -55,8 +52,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Image",
+      modelName: "CartList",
     }
   );
-  return Image;
+  return CartList;
 };
