@@ -1,0 +1,65 @@
+[
+    {
+        "username": "OwnerSub1",
+        "email": "owner@mail.com",
+        "password": "123456",
+        "role": "owner",
+        "phoneNumber": "0822653535",
+        "location":[0, 0],
+        "balance": 0
+    },
+    {
+        "username": "CustomerOlla",
+        "email": "customer@mail.com",
+        "password": "123456",
+        "role": "customer",
+        "phoneNumber": "0822653535",
+        "location": [0, 0],
+        "balance": 0
+    },
+    {
+        "username": "Jabolla",
+        "email": "jabolla@mail.com",
+        "password": "123456",
+        "role": "customer",
+        "phoneNumber": "0822653535",
+        "location": [0, 0],
+        "balance": 0
+    },
+    {
+        "username": "Sport.Co",
+        "email": "sportCo@mail.com",
+        "password": "123456",
+        "role": "owner",
+        "phoneNumber": "0822653295",
+        "location": [0, 0],
+        "balance": 0
+    },
+    {
+        "username": "RubyGarut",
+        "email": "rubygarut@mail.com",
+        "password": "123456",
+        "role": "customer",
+        "phoneNumber": "0822665535",
+        "location": [0, 0],
+        "balance": 0
+    },
+    {
+        "username": "CarlaCamilo",
+        "email": "carla1111@mail.com",
+        "password": "123456",
+        "role": "customer",
+        "phoneNumber": "0822653535",
+        "location": [0, 0],
+        "balance": 0
+    },
+    {
+        "username": "Raga jaya",
+        "email": "ragajaya@mail.com",
+        "password": "123456",
+        "role": "owner",
+        "phoneNumber": "08226532335",
+        "location": [0, 0],
+        "balance": 0
+    }
+]

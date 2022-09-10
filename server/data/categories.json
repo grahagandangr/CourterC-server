@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Basket",
+        "iconName": "basketball"
+    },
+    {
+        "name": "Badminton",
+        "iconName": "badminton"
+    },
+    {
+        "name": "Futsal",
+        "iconName": "soccer"
+    },
+    {
+        "name": "Tennis",
+        "iconName": "tennis-ball"
+    },
+    {
+        "name": "Golf",
+        "iconName": "golf"
+    }
+]
