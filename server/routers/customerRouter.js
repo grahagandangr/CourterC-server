@@ -11,9 +11,13 @@ const customerRouter = require("express").Router();
 customerRouter.post("/login", UserController.login);
 customerRouter.post("/register", UserController.register);
 
-customerRouter.post("/payment", PaymentController.midtransPayment);
-
 customerRouter.get("/schedules", SchedulesControllers.getSchedules);
+
+customerRouter.use(authentication)
+customerRouter.get('/', (req, res) => res.send('masuk authen cussss'))
+customerRouter.post("/top-up", PaymentController.topUpBalance);
+customerRouter.post('/top-up/update-balance', PaymentController.updateBalance)
+customerRouter.post('/do-payment', PaymentController.doPayment)
 customerRouter.post("/court/order", OrderScheduleController.OrderSchedule);
 customerRouter.get("/court/orderList", OrderScheduleController.getOrder);
 customerRouter.patch("/court/cancelOrder", OrderScheduleController.cancelOrder);

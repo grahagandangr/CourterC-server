@@ -4,7 +4,7 @@ const customerRouter = require('./customerRouter')
 const courtRouter = require('./courtRouter')
 
 router.use('/owner', ownerRouter)
-router.use('/customer', customerRouter )
+router.use('/customer', customerRouter)
 
 router.use('/courts', courtRouter)
 
