@@ -3,35 +3,28 @@ const UserController = require("../controllers/UserController");
 const SchedulesControllers = require("../controllers/SchedulesControllers");
 const CourtDetailController = require("../controllers/CourtDetailController");
 const OrderScheduleController = require("../controllers/OrderScheduleController");
-
-const authentication = require("../middlewares/authentication");
 const CourtCategoryController = require("../controllers/CourtCategoryController");
 const CourtController = require("../controllers/CourtController");
 const customerRouter = require("express").Router();
 const authentication = require("../middlewares/authentication");
 
-customerRouter.post("/login", UserController.login);
-customerRouter.post("/register", UserController.register);
+customerRouter.post("/login", UserController.login); //done
+customerRouter.post("/register", UserController.register); //done
 
-customerRouter.get("/schedules", SchedulesControllers.getSchedules);
-customerRouter.get("/", CourtController.getAll);
-// customerRouter.get("/:id", CourtController.getDetail);
+// customerRouter.get("/schedules", SchedulesControllers.getSchedules);
+customerRouter.get("/venues", CourtController.getAll); //done, ini daftar GOR yg tersedia
+customerRouter.get("/venues/:id", CourtController.getDetail);
+customerRouter.get('/courts', CourtCategoryController.getAll) //ini untuk tampilkan card lapangan di home page
+customerRouter.get("/courts/:id", CourtDetailController.getDetailCourt); //ini untuk menampilkan courtCategories detail dgn filtered schedule
 
 customerRouter.use(authentication);
-customerRouter.get("/", (req, res) => res.send("masuk authen cussss"));
-customerRouter.post("/top-up", PaymentController.topUpBalance);
-customerRouter.post("/top-up/update-balance", PaymentController.updateBalance);
-customerRouter.post("/do-payment", PaymentController.doPayment);
-customerRouter.post("/court/order", OrderScheduleController.OrderSchedule);
-customerRouter.get("/court/orderList", OrderScheduleController.getOrder);
-customerRouter.patch("/court/cancelOrder", PaymentController.cancelOrder);
-customerRouter.get("/court/:id", CourtDetailController.getDetailCourt);
+customerRouter.get('/profile', UserController.getUserDetail) //done
 
-customerRouter.get('/court', CourtCategoryController.getAll)
-
-// customerRouter.use(authentication);
-
-
+customerRouter.post("/top-up", PaymentController.topUpBalance); //done
+customerRouter.post("/top-up/update-balance", PaymentController.updateBalance); //done
+customerRouter.post("/pay-orders", OrderScheduleController.payOrders); //done
+customerRouter.get("/courts-orderList", OrderScheduleController.getOrder); //ini untuk cek semua order customer ====pr: cari semua order dari court untuk owner
+customerRouter.patch("/courts/cancelOrder/:orderDetailId", PaymentController.cancelOrder);
 
 
 module.exports = customerRouter;

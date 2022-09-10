@@ -50,11 +50,12 @@ class PaymentController {
         inputAmount,
       });
     } catch (error) {
+      next(error);
       console.log(error);
     }
   }
 
-  static async updateBalance(req, res) {
+  static async updateBalance(req, res, next) {
     try {
       const inputAmount = req.inputAmount;
       console.log(inputAmount, "+++++");
@@ -69,8 +70,9 @@ class PaymentController {
 
       console.log(updateBalance);
 
-      res.status(200).json({ message: "Success" });
+      res.status(200).json({ message: "Success top-up balance" });
     } catch (error) {
+      next(error);
       console.log(error);
     }
   }
@@ -101,8 +103,9 @@ class PaymentController {
   static async cancelOrder(req, res, next) {
     try {
       const { id, email, username } = req.user;
+      const { orderDetailId } = req.params;
       const user = await User.findByPk(id);
-      const orderDetail = await OrderDetail.findByPk(1);
+      const orderDetail = await OrderDetail.findByPk(orderDetailId);
       const updateBalance = await User.update(
         {
           balance: user.balance + orderDetail.price,
@@ -115,7 +118,7 @@ class PaymentController {
       const order = await OrderDetail.update(
         { status: "Cancelled" },
         {
-          where: { id: 1 },
+          where: { id: orderDetailId },
         }
       );
       res.status(200).json({

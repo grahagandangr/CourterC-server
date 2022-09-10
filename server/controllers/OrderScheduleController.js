@@ -1,6 +1,14 @@
-const { Order, OrderDetail } = require("../models");
+const {
+  User,
+  Order,
+  OrderDetail,
+  CourtCategory,
+  Court,
+  Category,
+} = require("../models");
 class Controller {
-  static async OrderSchedule(req, res, next) {
+  static async payOrders(req, res, next) {
+    const UserId = req.user.id;
     try {
       const cartList = [
         {
@@ -9,7 +17,6 @@ class Controller {
           status: "Reserved",
           CourtCategoryId: 1,
           ScheduleId: 8,
-          UserId: 1,
         },
         {
           date: new Date(),
@@ -17,7 +24,6 @@ class Controller {
           status: "Reserved",
           CourtCategoryId: 1,
           ScheduleId: 9,
-          UserId: 1,
         },
       ];
       let totalPrice = 0;
@@ -26,7 +32,7 @@ class Controller {
       const order = await Order.create({
         CourtCategoryId: cartList[0].CourtCategoryId,
         totalPrice,
-        UserId: cartList[0].UserId,
+        UserId,
       });
       for (const item of cartList) {
         await OrderDetail.create({
@@ -38,6 +44,16 @@ class Controller {
           ScheduleId: item.ScheduleId,
         });
       }
+
+      const user = await User.findByPk(UserId);
+      const userBalance = await User.update(
+        {
+          balance: user.balance - Number(totalPrice),
+        },
+        {
+          where: { id: UserId },
+        }
+      );
       res.status(201).json({
         msg: "success order",
       });
@@ -48,8 +64,9 @@ class Controller {
 
   static async getOrder(req, res, next) {
     try {
+      const UserId = req.user.id;
       const order = await Order.findAll({
-        where: { UserId: 1 },
+        where: { UserId },
         include: [
           {
             model: OrderDetail,
@@ -62,6 +79,49 @@ class Controller {
     }
   }
 
+  static async getOrderOwner(req, res, next) {
+    try {
+      const ownerId = req.user.id;
+      const order = await Order.findAll({
+        include: [
+          {
+            model: CourtCategory,
+            include: [
+              {
+                model: Court,
+                include: {
+                  model: User,
+                },
+              },
+              {
+                model: Category,
+              },
+            ],
+          },
+          {
+            model: OrderDetail,
+          },
+        ],
+      });
 
+      // const user = order.map(e=> e.CourtCategory.Court.User)
+      const owner = order.filter(
+        (e) => e.CourtCategory.Court.User.id === ownerId
+      );
+      const ownerOrders = owner.map((e) => {
+        console.log(e.OrderDetail);
+        return {
+          name:
+            e.CourtCategory.Court.name + "-" + e.CourtCategory.Category.name,
+          totalPrice: e.totalPrice,
+          orderDetails: e.OrderDetails,
+        };
+      });
+
+      res.status(200).json(ownerOrders);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 module.exports = Controller;

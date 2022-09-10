@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       CourtCategory.belongsTo(models.Category);
       CourtCategory.belongsTo(models.Court);
+      CourtCategory.hasMany(models.Order)
     }
   }
   CourtCategory.init(

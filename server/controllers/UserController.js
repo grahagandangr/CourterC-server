@@ -4,23 +4,23 @@ const { User } = require("../models");
 class UserController {
   static async register(req, res, next) {
     try {
-      const { username, email, password, phoneNumber, role, address} =
+      const { username, email, password, phoneNumber, role, address } =
         req.body;
-        console.log(req.body, '====');
+      console.log(req.body, "====");
 
-        let userLocation = {
-          type: "Point",
-          coordinates: [0, 0],
-        };
+      let userLocation = {
+        type: "Point",
+        coordinates: [0, 0],
+      };
 
-      if (!password) {
-        throw { name: "Password is required" };
-      }
+      // if (!password) {
+      //   throw { name: "Password is required" };
+      // }
 
       const newUser = await User.create({
         username,
         email,
-        password: hashPassword(password),
+        password,
         phoneNumber,
         role,
         address,
@@ -29,11 +29,11 @@ class UserController {
       });
 
       res.status(201).json({
-        message: `new user is created`,
+        message: `Success register`,
       });
     } catch (error) {
       console.log(error);
-      res.send(error)
+      next(error);
     }
   }
 
@@ -62,25 +62,35 @@ class UserController {
         id: user.id,
       };
 
-
       const access_token = createToken(payload);
 
       const username = user.username;
       const id = user.id;
-      const role = user.role
+      const role = user.role;
       res.status(200).json({
         access_token,
         username,
         id,
-        role
+        role,
       });
     } catch (error) {
-        res.send(error)
+      next(error);
       console.log(error);
     }
   }
 
+  static async getUserDetail(req, res, next) {
+    try {
+      const { id } = req.user;
+
+      const user = await User.findByPk(id);
+
+      res.status(200).json(user);
+    } catch (error) {
+      next(error)
+      console.log(error);
+    }
+  }
 }
 
 module.exports = UserController;
-
