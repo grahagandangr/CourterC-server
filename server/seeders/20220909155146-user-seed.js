@@ -1,5 +1,7 @@
 'use strict';
 
+const { hashPassword } = require('../helpers');
+
 module.exports = {
   async up (queryInterface, Sequelize) {
     /**
@@ -13,6 +15,10 @@ module.exports = {
     */
      let user = require('../data/users.json')
      user.forEach(el =>{
+      el.location = Sequelize.fn(
+        "ST_GeomFromText",
+        `POINT(${el.location[0]} ${el.location[1]})`
+      );
      el.password = hashPassword(el.password)
      el.createdAt = new Date()
      el.updatedAt = new Date()

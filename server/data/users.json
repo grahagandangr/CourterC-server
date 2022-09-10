@@ -6,7 +6,9 @@
         "role": "owner",
         "phoneNumber": "0822653535",
         "location":[0, 0],
-        "balance": 0
+        "balance": 0,
+        "address": "Jl. earth"
+        
     },
     {
         "username": "CustomerOlla",
@@ -15,7 +17,8 @@
         "role": "customer",
         "phoneNumber": "0822653535",
         "location": [0, 0],
-        "balance": 0
+        "balance": 0,
+        "address": "Jl. earth"
     },
     {
         "username": "Jabolla",
@@ -24,7 +27,8 @@
         "role": "customer",
         "phoneNumber": "0822653535",
         "location": [0, 0],
-        "balance": 0
+        "balance": 0,
+        "address": "Jl. earth"
     },
     {
         "username": "Sport.Co",
@@ -33,7 +37,8 @@
         "role": "owner",
         "phoneNumber": "0822653295",
         "location": [0, 0],
-        "balance": 0
+        "balance": 0,
+        "address": "Jl. earth"
     },
     {
         "username": "RubyGarut",
@@ -42,7 +47,8 @@
         "role": "customer",
         "phoneNumber": "0822665535",
         "location": [0, 0],
-        "balance": 0
+        "balance": 0,
+        "address": "Jl. earth"
     },
     {
         "username": "CarlaCamilo",
@@ -51,7 +57,8 @@
         "role": "customer",
         "phoneNumber": "0822653535",
         "location": [0, 0],
-        "balance": 0
+        "balance": 0,
+        "address": "Jl. earth"
     },
     {
         "username": "Raga jaya",
@@ -60,6 +67,7 @@
         "role": "owner",
         "phoneNumber": "08226532335",
         "location": [0, 0],
-        "balance": 0
+        "balance": 0,
+        "address": "Jl. earth"
     }
 ]

@@ -13,16 +13,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   CourtCategory.init(
     {
-<<<<<<< HEAD
       CourtId: {
-=======
-      CategoryId: {
->>>>>>> 858c32a4aee68f060962c5eb1de571c398608dd3
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
           notEmpty: {
-<<<<<<< HEAD
             msg: "CourtId is required",
           },
           notNull: {
@@ -31,31 +26,14 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       CategoryId: {
-=======
-            msg: "CategoryId is required",
-          },
-          notNull: {
-            msg: "CategoryId is required",
-          },
-        },
-      },
-      CourtId: {
->>>>>>> 858c32a4aee68f060962c5eb1de571c398608dd3
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
           notEmpty: {
-<<<<<<< HEAD
             msg: "CategoryId is required",
           },
           notNull: {
             msg: "CategoryId is required",
-=======
-            msg: "CourtId is required",
-          },
-          notNull: {
-            msg: "CourtId is required",
->>>>>>> 858c32a4aee68f060962c5eb1de571c398608dd3
           },
         },
       },
