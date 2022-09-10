@@ -1,7 +1,7 @@
-'use strict';
-
+"use strict";
+const court = require("../data/courts.json");
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     /**
      * Add seed commands here.
      *
@@ -10,11 +10,8 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */
-<<<<<<< HEAD
-    let court = require('../data/courts.json')
-
-     court.forEach((el) => {
+     */
+    court.forEach((el) => {
       el.location = Sequelize.fn(
         "ST_GeomFromText",
         `POINT(${el.location[0]} ${el.location[1]})`
@@ -25,22 +22,13 @@ module.exports = {
     await queryInterface.bulkInsert("Courts", court, {});
   },
 
-
-=======
-  },
-
->>>>>>> orderAndSchedule
-  async down (queryInterface, Sequelize) {
+  async down(queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-<<<<<<< HEAD
-
-     await queryInterface.bulkDelete('Courts', null, {})
-=======
->>>>>>> orderAndSchedule
-  }
+    await queryInterface.bulkDelete("Courts", null, {});
+  },
 };

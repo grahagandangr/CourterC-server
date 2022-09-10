@@ -1,7 +1,10 @@
 'use strict';
 
+<<<<<<< HEAD
 const { hashPassword } = require('../helpers');
 
+=======
+>>>>>>> orderAndSchedule
 module.exports = {
   async up (queryInterface, Sequelize) {
     /**
@@ -13,6 +16,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+<<<<<<< HEAD
      let user = require('../data/users.json')
      user.forEach(el =>{
       el.location = Sequelize.fn(
@@ -25,6 +29,8 @@ module.exports = {
      return el
     })
      await queryInterface.bulkInsert('Users', user)
+=======
+>>>>>>> orderAndSchedule
   },
 
   async down (queryInterface, Sequelize) {
@@ -34,7 +40,10 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+<<<<<<< HEAD
 
      await queryInterface.bulkDelete('Users', null, {})
+=======
+>>>>>>> orderAndSchedule
   }
 };
