@@ -1,14 +1,14 @@
 {
   "development": {
-    "username": "abhi",
-    "password": "270402",
+    "username": "postgres",
+    "password": "Nurul2310",
     "database": "CourterC",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
-    "username": "abhi",
-    "password": "270402",
+    "username": "postgres",
+    "password": "Nurul2310",
     "database": "CourterC-Test",
     "host": "127.0.0.1",
     "dialect": "postgres"
