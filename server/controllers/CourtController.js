@@ -15,6 +15,17 @@ module.exports = class CourtController {
     }
   }
 
+  static async getCourtCustomer(req, res, next) {
+    try {
+      const court = await Court.findAll();
+
+      res.status(200).json(court);
+    } catch (error) {
+      next(error);
+      console.log(error);
+    }
+  }
+
   static async createCourt(req, res, next) {
     try {
       const id = req.user.id;

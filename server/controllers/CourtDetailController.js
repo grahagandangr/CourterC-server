@@ -15,6 +15,7 @@ class Controller {
           },
         ],
       });
+
       const schedules = await Schedule.findAll();
       const openHour = courtDetail.Court.openHour;
       const closeHour = courtDetail.Court.closeHour;
@@ -24,7 +25,7 @@ class Controller {
 
       res.status(200).json({ courtDetail, filteredSchedules });
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 }

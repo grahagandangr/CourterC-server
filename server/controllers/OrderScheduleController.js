@@ -62,8 +62,8 @@ class Controller {
           where: { id: UserId },
         }
       );
-      res.status(201).json({
-        msg: "success order",
+      res.status(200).json({
+        message: "success order",
       });
     } catch (error) {
       next(error)

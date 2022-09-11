@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">16.66% </span>
+                <span class="strong">91.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/12</span>
+                <span class='fraction'>11/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">16.66% </span>
+                <span class="strong">91.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/12</span>
+                <span class='fraction'>11/12</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -94,31 +94,33 @@
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -128,10 +130,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const { Court, CourtCategory, Category, Schedule } = require("../models");
 &nbsp;
 class Controller {
-<span class="fstat-no" title="function not covered" >  st</span>atic async getDetailCourt(req, res, next) {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-      const { id } = <span class="cstat-no" title="statement not covered" >req.params;</span>
-      const courtDetail = <span class="cstat-no" title="statement not covered" >await CourtCategory.findOne({</span>
+  static async getDetailCourt(req, res, next) {
+    try {
+      const { id } = req.params;
+      const courtDetail = await CourtCategory.findOne({
         where: { id },
         include: [
           {
@@ -142,16 +144,17 @@ class Controller {
           },
         ],
       });
-      const schedules = <span class="cstat-no" title="statement not covered" >await Schedule.findAll();</span>
-      const openHour = <span class="cstat-no" title="statement not covered" >courtDetail.Court.openHour;</span>
-      const closeHour = <span class="cstat-no" title="statement not covered" >courtDetail.Court.closeHour;</span>
-      let filteredSchedules = <span class="cstat-no" title="statement not covered" >schedules.filter(</span>
-<span class="fstat-no" title="function not covered" >        (e</span>) =&gt; <span class="cstat-no" title="statement not covered" >e.id &gt;= openHour &amp;&amp; e.id &lt; closeHour</span>
+&nbsp;
+      const schedules = await Schedule.findAll();
+      const openHour = courtDetail.Court.openHour;
+      const closeHour = courtDetail.Court.closeHour;
+      let filteredSchedules = schedules.filter(
+        (e) =&gt; e.id &gt;= openHour &amp;&amp; e.id &lt; closeHour
       );
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      res.status(200).json({ courtDetail, filteredSchedules });</span>
+      res.status(200).json({ courtDetail, filteredSchedules });
     } catch (error) {
-<span class="cstat-no" title="statement not covered" >      console.log(error);</span>
+<span class="cstat-no" title="statement not covered" >      next(error);</span>
     }
   }
 }
@@ -163,7 +166,7 @@ module.exports = Controller;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-09-11T08:45:13.625Z
+                at 2022-09-11T11:03:26.037Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

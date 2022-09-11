@@ -13,7 +13,7 @@ customerRouter.post("/register", UserController.register); //done
 
 // customerRouter.get("/schedules", SchedulesControllers.getSchedules);
 customerRouter.use(authentication);
-customerRouter.get("/venues", CourtController.getCourt); //done, ini daftar GOR yg tersedia
+customerRouter.get("/venues", CourtController.getCourtCustomer); //done, ini daftar GOR yg tersedia
 // customerRouter.get("/venues/:id", CourtController.getDetail);
 customerRouter.get('/courts', CourtCategoryController.getAllCustomer) //ini untuk tampilkan card lapangan di home page
 customerRouter.get('/courts-radius', CourtCategoryController.getAllByRadius)

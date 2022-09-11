@@ -4,7 +4,7 @@ const { User, OrderDetail } = require("../models");
 class PaymentController {
   static async topUpBalance(req, res, next) {
     try {
-      const inputAmount = +req.body.amount;
+      const inputAmount = req.body.amount;
       const { id, email, username } = req.user;
       let parameter = {
         transaction_details: {
@@ -50,7 +50,7 @@ class PaymentController {
         inputAmount,
       });
     } catch (error) {
-      next(error);
+      // next(error);
       console.log(error);
     }
   }
@@ -99,7 +99,7 @@ class PaymentController {
         }
       );
       res.status(200).json({
-        msg: "Success cancelled order",
+        message: "Success cancelled order",
       });
     } catch (error) {
       console.log(error);

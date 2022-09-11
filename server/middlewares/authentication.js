@@ -18,8 +18,6 @@ async function authentication(req, res, next) {
       };
     }
 
-    console.log(payload, "dari authen======");
-
     const court = await Court.findOne({
       where: { UserId: user.id },
     });
@@ -37,6 +35,7 @@ async function authentication(req, res, next) {
     next();
   } catch (error) {
     console.log(error);
+    next(error);
   }
 }
 

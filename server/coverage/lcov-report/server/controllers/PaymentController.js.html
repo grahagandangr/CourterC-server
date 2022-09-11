@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">6.97% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>3/43</span>
+                <span class='fraction'>12/42</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">6.97% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/43</span>
+                <span class='fraction'>12/42</span>
             </div>
         
             
@@ -208,10 +208,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -242,20 +242,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -347,11 +347,11 @@
 const { User, OrderDetail } = require("../models");
 &nbsp;
 class PaymentController {
-<span class="fstat-no" title="function not covered" >  st</span>atic async topUpBalance(req, res, next) {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-      const inputAmount = <span class="cstat-no" title="statement not covered" >+req.body.amount;</span>
-      const { id, email, username } = <span class="cstat-no" title="statement not covered" >req.user;</span>
-      let parameter = <span class="cstat-no" title="statement not covered" >{</span>
+  static async topUpBalance(req, res, next) {
+    try {
+      const inputAmount = req.body.amount;
+      const { id, email, username } = req.user;
+      let parameter = {
         transaction_details: {
           order_id: new Date().getTime(),
           gross_amount: Number(req.body.amount),
@@ -382,20 +382,20 @@ class PaymentController {
           secure: true,
         },
       };
-      const transaction = <span class="cstat-no" title="statement not covered" >await snap.createTransaction(parameter);</span>
+      const transaction = await snap.createTransaction(parameter);
 &nbsp;
-      let transactionToken = <span class="cstat-no" title="statement not covered" >transaction.token;</span>
-      let transactionRedirectUrl = <span class="cstat-no" title="statement not covered" >transaction.redirect_url;</span>
+      let transactionToken = transaction.token;
+      let transactionRedirectUrl = transaction.redirect_url;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      req.inputAmount = inputAmount;</span>
+      req.inputAmount = inputAmount;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      res.status(200).json({</span>
+      res.status(200).json({
         token: transactionToken,
         redirect_url: transactionRedirectUrl,
         inputAmount,
       });
     } catch (error) {
-<span class="cstat-no" title="statement not covered" >      next(error);</span>
+      // next(error);
 <span class="cstat-no" title="statement not covered" >      console.log(error);</span>
     }
   }
@@ -490,7 +490,7 @@ module.exports = PaymentController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-09-11T08:45:13.625Z
+                at 2022-09-11T11:03:26.037Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

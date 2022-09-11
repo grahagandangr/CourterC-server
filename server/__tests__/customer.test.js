@@ -19,7 +19,8 @@ const fs = require("fs");
 const { hashPassword } = require("../helpers");
 
 const invalidToken = "123456789eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9";
-let validToken = "";
+let validToken =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjYyODkwOTEzfQ.2-v1-5JfAvbDD-xhyyp3zb8AopKHHnXyEUEJTY6jbxY";
 
 const customerTest = {
   username: "test1",
@@ -179,7 +180,7 @@ afterAll(() => {
     });
 });
 
-describe("Customer Routes Test", () => {
+describe("Customer Login and register Routes Test", () => {
   describe("POST /customer/register - create new customer", () => {
     test("201 Success register - should create new Customer", (done) => {
       request(app)
@@ -326,6 +327,174 @@ describe("Customer Routes Test", () => {
         });
     });
   });
+});
+
+describe("GET /customer/venues", () => {
+  test("200 Success get all venues", (done) => {
+    request(app)
+      .get("/customer/venues")
+      .set("access_token", validToken)
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(200);
+        expect(body).toEqual(expect.any(Array));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+});
+
+describe("GET /customer/courts", () => {
+  test("200 Success get all court categories", (done) => {
+    request(app)
+      .get("/customer/courts")
+      .set("access_token", validToken)
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(200);
+        expect(body).toEqual(expect.any(Object));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  test("200 Success get all court categories by radius", (done) => {
+    request(app)
+      .get("/customer/courts-radius")
+      .set("access_token", validToken)
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(200);
+        expect(body).toEqual(expect.any(Object));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  test("200 Success get court categories detail by id", (done) => {
+    request(app)
+      .get(`/customer/courts/1`)
+      .set("access_token", validToken)
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(200);
+        expect(body).toEqual(expect.any(Object));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+});
+
+describe("GET /customer/profile", () => {
+  test("200 Success get profile", (done) => {
+    request(app)
+      .get("/customer/profile")
+      .set("access_token", validToken)
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(200);
+        expect(body).toEqual(expect.any(Object));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+});
+
+describe("Customer Order Test", () => {
+    test("200 Success get all customer orders", (done) => {
+      request(app)
+        .get("/customer/courts-orderList")
+        .set("access_token", validToken)
+        .then((response) => {
+          const { body, status } = response;
+          expect(status).toBe(200);
+          expect(body).toEqual(expect.any(Object));
+          done();
+        })
+        .catch((err) => {
+          done(err);
+        });
+    });
+
+  });
+
+describe("Customer Payment Test", () => {
+  test("200 Success connect to midtrans", (done) => {
+    request(app)
+      .post("/customer/top-up")
+      .send({
+        amount: 100000
+      })
+      .set("access_token", validToken)
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(200);
+        expect(body).toEqual(expect.any(Object));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  test("200 Success update balance customer", (done) => {
+    request(app)
+      .post("/customer/top-up/update-balance")
+      .send({
+        gross_amount: 100000
+      })
+      .set("access_token", validToken)
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(200);
+        expect(body).toEqual(expect.any(Object));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  test("200 Success pay order", (done) => {
+    request(app)
+      .post("/customer/pay-orders")
+      .set("access_token", validToken)
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(200);
+        expect(body).toEqual(expect.any(Object));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  test.only("200 Success cancel order", (done) => {
+    request(app)
+      .patch("/customer/courts/cancelOrder/1")
+      .set("access_token", validToken)
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(200);
+        expect(body).toEqual(expect.any(Object));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
 });
 
 // describe("POST /customer/register ", () => {
