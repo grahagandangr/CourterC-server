@@ -77,29 +77,6 @@ class PaymentController {
     }
   }
 
-  static async doPayment(req, res) {
-    try {
-      const { id, email, username } = req.user;
-      const { totalPrice } = req.body;
-
-      const user = await User.findByPk(id);
-
-      const userBalance = await User.update(
-        {
-          balance: user.balance - Number(totalPrice),
-        },
-        {
-          where: { id },
-        }
-      );
-      res.status(200).json({
-        message: "Success",
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   static async cancelOrder(req, res, next) {
     try {
       const { id, email, username } = req.user;
@@ -123,6 +100,36 @@ class PaymentController {
       );
       res.status(200).json({
         msg: "Success cancelled order",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  static async claimPaymentOwner(req, res, next){
+    try {
+      const id =req.user.id
+      const { orderDetailId } = req.params;
+      const user = await User.findByPk(id);
+      const orderDetail = await OrderDetail.findByPk(orderDetailId);
+
+      const updateBalanceOwner = await User.update(
+        {
+          balance: user.balance + orderDetail.price,
+        },
+        {
+          where: { id },
+        }
+      );
+
+      const order = await OrderDetail.update(
+        { status: "Finished" },
+        {
+          where: { id: orderDetailId },
+        }
+      );
+      res.status(200).json({
+        msg: "Success claim payment",
       });
     } catch (error) {
       console.log(error);

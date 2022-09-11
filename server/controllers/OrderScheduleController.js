@@ -8,8 +8,8 @@ const {
 } = require("../models");
 class Controller {
   static async payOrders(req, res, next) {
-    const UserId = req.user.id;
     try {
+      const UserId = req.user.id;
       const cartList = [
         {
           date: new Date(),
@@ -29,11 +29,15 @@ class Controller {
       let totalPrice = 0;
       cartList.forEach((e) => (totalPrice += e.price));
       console.log(totalPrice);
+
+
       const order = await Order.create({
         CourtCategoryId: cartList[0].CourtCategoryId,
         totalPrice,
         UserId,
       });
+
+      console.log(order, '======');
       for (const item of cartList) {
         await OrderDetail.create({
           date: new Date(),
@@ -46,6 +50,10 @@ class Controller {
       }
 
       const user = await User.findByPk(UserId);
+
+      if(user.balance < totalPrice){
+        throw  {name: 'your balance is not enough'}
+      }
       const userBalance = await User.update(
         {
           balance: user.balance - Number(totalPrice),
@@ -58,6 +66,7 @@ class Controller {
         msg: "success order",
       });
     } catch (error) {
+      next(error)
       console.log(error);
     }
   }
@@ -75,6 +84,7 @@ class Controller {
       });
       res.status(200).json(order);
     } catch (error) {
+      next(error)
       console.log(error);
     }
   }
@@ -120,6 +130,7 @@ class Controller {
 
       res.status(200).json(ownerOrders);
     } catch (error) {
+      next(error)
       console.log(error);
     }
   }

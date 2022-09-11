@@ -12,12 +12,13 @@ customerRouter.post("/login", UserController.login); //done
 customerRouter.post("/register", UserController.register); //done
 
 // customerRouter.get("/schedules", SchedulesControllers.getSchedules);
-customerRouter.get("/venues", CourtController.getAll); //done, ini daftar GOR yg tersedia
-customerRouter.get("/venues/:id", CourtController.getDetail);
-customerRouter.get('/courts', CourtCategoryController.getAll) //ini untuk tampilkan card lapangan di home page
+customerRouter.use(authentication);
+customerRouter.get("/venues", CourtController.getCourt); //done, ini daftar GOR yg tersedia
+// customerRouter.get("/venues/:id", CourtController.getDetail);
+customerRouter.get('/courts', CourtCategoryController.getAllCustomer) //ini untuk tampilkan card lapangan di home page
+customerRouter.get('/courts-radius', CourtCategoryController.getAllByRadius)
 customerRouter.get("/courts/:id", CourtDetailController.getDetailCourt); //ini untuk menampilkan courtCategories detail dgn filtered schedule
 
-customerRouter.use(authentication);
 customerRouter.get('/profile', UserController.getUserDetail) //done
 
 customerRouter.post("/top-up", PaymentController.topUpBalance); //done

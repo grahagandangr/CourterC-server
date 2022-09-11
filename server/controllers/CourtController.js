@@ -1,9 +1,12 @@
 const { Court, User } = require("../models");
 
 module.exports = class CourtController {
-  static async getAll(req, res, next) {
+  static async getCourt(req, res, next) {
     try {
-      const court = await Court.findAll();
+      const id = req.user.id;
+      const court = await Court.findAll({
+        where: { UserId: id },
+      });
 
       res.status(200).json(court);
     } catch (error) {
@@ -13,102 +16,89 @@ module.exports = class CourtController {
   }
 
   static async createCourt(req, res, next) {
-    const { name, description, UserId, openHour, closeHour, location } =
-      req.body;
-
-    const lat = location[0];
-
-    const long = location[1];
-
-    const point = { type: "POINT", coordinates: [lat, long] };
-
     try {
+      const id = req.user.id;
+      const { name, description, openHour, closeHour, location, address } =
+        req.body;
+
+      const lat = location[0];
+
+      const long = location[1];
+
+      const point = { type: "POINT", coordinates: [lat, long] };
+
       const court = await Court.create({
         name,
         description,
-        UserId,
+        UserId: id,
         openHour,
         closeHour,
         location: point,
+        address,
       });
 
       res.status(201).json({
         message: "success create court",
-        court,
       });
     } catch (error) {
       console.log(error);
     }
   }
 
-  static async updateCourt(req, res, next) {
-    const { name, description, UserId, openHour, closeHour, location } =
-      req.body;
+  // static async updateCourt(req, res, next) {
+  //   const { name, description, UserId, openHour, closeHour, location } =
+  //     req.body;
 
-    const { id } = req.params;
+  //   const { id } = req.params;
 
-    const lat = location[0];
+  //   const lat = location[0];
 
-    const long = location[1];
+  //   const long = location[1];
 
-    const point = { type: "POINT", coordinates: [lat, long] };
+  //   const point = { type: "POINT", coordinates: [lat, long] };
 
-    try {
-      const findCourt = await Court.findByPk(id);
+  //   try {
+  //     const findCourt = await Court.findByPk(id);
 
-      if (!findCourt) throw { name: "Not Found" };
+  //     if (!findCourt) throw { name: "Not Found" };
 
-      const court = await Court.update(
-        { name, description, UserId, openHour, closeHour, location: point },
-        {
-          where: {
-            id: findCourt.id,
-          },
-        }
-      );
+  //     const court = await Court.update(
+  //       { name, description, UserId, openHour, closeHour, location: point },
+  //       {
+  //         where: {
+  //           id: findCourt.id,
+  //         },
+  //       }
+  //     );
 
-      res.status(200).json({
-        message: "court updated",
-        court,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     res.status(200).json({
+  //       message: "court updated",
+  //       court,
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  static async getDetail(req, res, next) {
-    const { id } = req.params;
+  // static async deleteCourt(req, res, next) {
+  //   const { id } = req.params;
 
-    try {
-      const court = await Court.findOne({
-        where: { id },
-      });
+  //   try {
+  //     const findCourt = await Court.findByPk(id);
 
-      res.status(200).json(court);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     if (!findCourt) throw { name: "Not Found" };
 
-  static async deleteCourt(req, res, next) {
-    const { id } = req.params;
+  //     await Court.destroy({
+  //       where: {
+  //         id: findCourt.id,
+  //       },
+  //     });
 
-    try {
-      const findCourt = await Court.findByPk(id);
-
-      if (!findCourt) throw { name: "Not Found" };
-
-      await Court.destroy({
-        where: {
-          id: findCourt.id,
-        },
-      });
-
-      res.status(200).json({
-        message: "success delete court",
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     res.status(200).json({
+  //       message: "success delete court",
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 };

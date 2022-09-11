@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       CourtCategory.belongsTo(models.Category);
       CourtCategory.belongsTo(models.Court);
       CourtCategory.hasMany(models.Order)
+      CourtCategory.hasMany(models.Image)
     }
   }
   CourtCategory.init(

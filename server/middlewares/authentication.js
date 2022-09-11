@@ -1,5 +1,5 @@
 const { verifyToken } = require("../helpers");
-const { User } = require("../models");
+const { User, Court } = require("../models");
 
 async function authentication(req, res, next) {
   try {
@@ -20,16 +20,24 @@ async function authentication(req, res, next) {
 
     console.log(payload, "dari authen======");
 
+    const court = await Court.findOne({
+      where: { UserId: user.id },
+    });
+
     req.user = {
       id: user.id,
       email: user.email,
       username: user.username,
-      role: user.role
+      role: user.role,
     };
+
+    if (court) {
+      req.user.CourtId = court.id;
+    }
     next();
   } catch (error) {
     console.log(error);
   }
 }
 
-module.exports = authentication
+module.exports = authentication;
