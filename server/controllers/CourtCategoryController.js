@@ -24,6 +24,7 @@ module.exports = class CourtCategoryController {
       });
 
       const filter = courtCategory.filter((e) => e.Court.User.id === id);
+      // console.log(filter[0].Images[0].imgUrl, '_')
       const courtCategoryFiltered = filter.map((e) => {
         return {
           id: e.id,

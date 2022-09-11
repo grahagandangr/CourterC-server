@@ -59,7 +59,7 @@ class PaymentController {
     try {
       const inputAmount = req.inputAmount;
       console.log(inputAmount, "+++++");
-      const { id, email, username } = req.user;
+      const { id } = req.user;
 
       const { gross_amount } = req.body;
       const user = await User.findByPk(id);
@@ -79,11 +79,11 @@ class PaymentController {
 
   static async cancelOrder(req, res, next) {
     try {
-      const { id, email, username } = req.user;
+      const { id } = req.user;
       const { orderDetailId } = req.params;
       const user = await User.findByPk(id);
       const orderDetail = await OrderDetail.findByPk(orderDetailId);
-      const updateBalance = await User.update(
+      await User.update(
         {
           balance: user.balance + orderDetail.price,
         },
@@ -92,7 +92,7 @@ class PaymentController {
         }
       );
 
-      const order = await OrderDetail.update(
+      await OrderDetail.update(
         { status: "Cancelled" },
         {
           where: { id: orderDetailId },

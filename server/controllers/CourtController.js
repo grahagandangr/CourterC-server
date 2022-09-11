@@ -52,6 +52,7 @@ module.exports = class CourtController {
         message: "success create court",
       });
     } catch (error) {
+      next(error)
       console.log(error);
     }
   }
