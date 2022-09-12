@@ -20,7 +20,7 @@ const { hashPassword } = require("../helpers");
 
 const invalidToken = "123456789eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9";
 let validToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjYyOTA1NzE5fQ.IHKh8kmlQvCpQbvn22KFBGG4L7TA6ESDc8ZTNT032_o";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjYyOTUyNjYzfQ.1pddTTYxr1Win4Djc904H2ze2idEeCVjFdtLG29M6PA";
 
 
 

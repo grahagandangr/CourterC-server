@@ -20,7 +20,7 @@ const { hashPassword } = require("../helpers");
 
 const invalidToken = "123456789eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9";
 let validToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjYyOTA1NDQxfQ.I0N0FW2NSsEpTOOW5fiDxcxui3lxcrLYs6bWBOmOm7Y";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjYyOTUyNTIzfQ.aILp-d5VxtINkmagNghkDkl1MH2mSOiKyq98o2xQMgY";
 
 const customerTest = {
   username: "test1",
@@ -57,8 +57,7 @@ beforeAll(() => {
       return queryInterface.bulkInsert("Categories", categories);
     })
     .then(() => {
-      let courts = JSON.parse(fs.readFileSync("./data/courts.json", "utf-8"));
-      // console.log(products, "========");
+      let courts = JSON.parse(fs.readFileSync("./data/courts.json", "utf-8"))
       courts.forEach((court) => {
         court.location = Sequelize.fn(
           "ST_GeomFromText",
@@ -72,7 +71,6 @@ beforeAll(() => {
       let courtCategories = JSON.parse(
         fs.readFileSync("./data/courtCategories.json", "utf-8")
       );
-      // console.log(products, "========");
       courtCategories.forEach((cc) => {
         cc.createdAt = cc.updatedAt = new Date();
       });
@@ -82,7 +80,6 @@ beforeAll(() => {
       let schedules = JSON.parse(
         fs.readFileSync("./data/schedule.json", "utf-8")
       );
-      // console.log(products, "========");
       schedules.forEach((s) => {
         s.createdAt = s.updatedAt = new Date();
       });
@@ -90,7 +87,6 @@ beforeAll(() => {
     })
     .then(() => {
       let images = JSON.parse(fs.readFileSync("./data/images.json", "utf-8"));
-      // console.log(products, "========");
       images.forEach((i) => {
         i.createdAt = i.updatedAt = new Date();
       });
@@ -99,7 +95,6 @@ beforeAll(() => {
 
     .then(() => {
       let orders = JSON.parse(fs.readFileSync("./data/order.json", "utf-8"));
-      // console.log(products, "========");
       orders.forEach((o) => {
         o.createdAt = o.updatedAt = new Date();
       });
@@ -109,7 +104,6 @@ beforeAll(() => {
       let orderDetails = JSON.parse(
         fs.readFileSync("./data/orderDetail.json", "utf-8")
       );
-      // console.log(products, "========");
       orderDetails.forEach((o) => {
         o.createdAt = o.updatedAt = new Date();
       });
@@ -325,7 +319,43 @@ describe("Customer Login and register Routes Test", () => {
           expect(body).toHaveProperty("message", "Invalid Email/Password");
           return done();
         });
-    });
+    })
+
+    test("401 Failed login - should return error when email / password is not inputed", (done) => {
+      request(app)
+        .post("/customer/login")
+        .send({
+          email: "",
+          password: "",
+        })
+        .end((err, res) => {
+          if (err) return done(err);
+          const { body, status } = res;
+
+          expect(status).toBe(401);
+          expect(body).toEqual(expect.any(Object));
+          expect(body).toHaveProperty("message", "Email / Password is required");
+          return done();
+        });
+    })
+
+    test("401 Failed login - should return error when email / password is not inputed", (done) => {
+      request(app)
+        .post("/customer/login")
+        .send({
+          email: "",
+          password: "",
+        })
+        .end((err, res) => {
+          if (err) return done(err);
+          const { body, status } = res;
+
+          expect(status).toBe(401);
+          expect(body).toEqual(expect.any(Object));
+          expect(body).toHaveProperty('message', expect.any(String));
+          return done();
+        });
+    })
   });
 });
 
@@ -345,13 +375,27 @@ describe("GET /customer/venues", () => {
       });
   });
 
-  test("Should return error message", (done) => {
+  test("Should return error message if invalid token is inputted", (done) => {
     request(app)
       .get("/customer/venues")
       .set("access_token",invalidToken)
       .then((response) => {
         const { body, status } = response;
         expect(status).toBe(403);
+        expect(body).toHaveProperty('message', expect.any(String))
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  })
+
+  test("Should return error message when not logged in yet", (done) => {
+    request(app)
+      .get("/customer/venues")
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(401);
         expect(body).toHaveProperty('message', expect.any(String))
         done();
       })
