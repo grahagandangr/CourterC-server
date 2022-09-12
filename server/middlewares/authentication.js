@@ -4,6 +4,7 @@ const { User, Court } = require("../models");
 async function authentication(req, res, next) {
   try {
     let { access_token } = req.headers;
+
     if (!access_token) {
       throw {
         name: "NoToken",

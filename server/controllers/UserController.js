@@ -36,7 +36,6 @@ class UserController {
     try {
       const { username, email, password, role, phoneNumber, address } =
         req.body;
-
       let userLocation = {
         type: "POINT",
         coordinates: [0, 0],
@@ -62,9 +61,7 @@ class UserController {
           email: user.email,
         },
       });
-
       if (!login) throw { name: "Invalid_email/password" };
-
       const comparePass = compareHash(password, login.password);
 
       if (!comparePass) throw { name: "Invalid_email/password" };
@@ -74,10 +71,13 @@ class UserController {
       };
 
       const access_token = createToken(payload);
-
+console.log(access_token);
       res.status(201).json({
         message: "success register owner",
         access_token,
+        username: login.username,
+        id: login.id,
+        role: login.role
       });
     } catch (error) {
       next(error);

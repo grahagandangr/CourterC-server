@@ -4,6 +4,7 @@ const UserController = require("../controllers/UserController");
 const authentication = require("../middlewares/authentication");
 const OrderScheduleController = require('../controllers/OrderScheduleController');
 const PaymentController = require("../controllers/PaymentController");
+const CategoryController = require("../controllers/CategoryController");
 const ownerRouter = require("express").Router();
 
 
@@ -13,7 +14,7 @@ ownerRouter.post("/login", UserController.login); //done
 ownerRouter.use(authentication)
 ownerRouter.get('/courts', CourtController.getCourt) //done
 ownerRouter.post('/courts', CourtController.createCourt) //done
-
+ownerRouter.get('/categories', CategoryController.getCategory)
 ownerRouter.get('/courtCategories', CourtCategoryController.getAllOwner) //done untuk data semua lapangan yg dimiliki owner
 ownerRouter.get('/courtCategories/:id', CourtCategoryController.getDetail) //done
 ownerRouter.put('/courtCategories/:id', CourtCategoryController.updateCourtCategory) //done

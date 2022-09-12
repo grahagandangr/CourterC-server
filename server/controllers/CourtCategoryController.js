@@ -140,6 +140,7 @@ module.exports = class CourtCategoryController {
         CategoryId,
         price,
       });
+      console.log(created)
 
       const images = await Image.bulkCreate(
         imgUrl.map((img) => ({ imgUrl: img, CourtCategoryId: created.id }))
