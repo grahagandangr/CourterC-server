@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node ./bin/www",
     "dev": "npx nodemon ./bin/www",
     "run": "node ./bin/www",
     "test": "jest --runInBand --forceExit --silent --coverage"
