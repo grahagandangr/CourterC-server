@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1662966627829" clover="3.2.0">
-  <project timestamp="1662966627829" name="All files">
-    <metrics statements="367" coveredstatements="341" conditionals="47" coveredconditionals="42" methods="57" coveredmethods="57" elements="471" coveredelements="440" complexity="0" loc="367" ncloc="367" packages="6" files="23" classes="23"/>
+<coverage generated="1662971716469" clover="3.2.0">
+  <project timestamp="1662971716469" name="All files">
+    <metrics statements="375" coveredstatements="348" conditionals="47" coveredconditionals="42" methods="58" coveredmethods="58" elements="480" coveredelements="448" complexity="0" loc="375" ncloc="375" packages="6" files="24" classes="24"/>
     <package name="server">
       <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
-      <file name="app.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\app.js">
+      <file name="app.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/app.js">
         <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="cond" truecount="1" falsecount="1"/>
         <line num="2" count="2" type="stmt"/>
@@ -22,8 +22,17 @@
       </file>
     </package>
     <package name="server.controllers">
-      <metrics statements="198" coveredstatements="174" conditionals="18" coveredconditionals="18" methods="30" coveredmethods="30"/>
-      <file name="CourtCategoryController.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\controllers\CourtCategoryController.js">
+      <metrics statements="204" coveredstatements="179" conditionals="18" coveredconditionals="18" methods="31" coveredmethods="31"/>
+      <file name="CategoryController.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/controllers/CategoryController.js">
+        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+      </file>
+      <file name="CourtCategoryController.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/controllers/CourtCategoryController.js">
         <metrics statements="52" coveredstatements="45" conditionals="6" coveredconditionals="6" methods="12" coveredmethods="12"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -78,7 +87,7 @@
         <line num="215" count="1" type="stmt"/>
         <line num="219" count="0" type="stmt"/>
       </file>
-      <file name="CourtController.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\controllers\CourtController.js">
+      <file name="CourtController.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/controllers/CourtController.js">
         <metrics statements="20" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -101,7 +110,7 @@
         <line num="49" count="1" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
       </file>
-      <file name="CourtDetailController.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\controllers\CourtDetailController.js">
+      <file name="CourtDetailController.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/controllers/CourtDetailController.js">
         <metrics statements="12" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
@@ -116,7 +125,7 @@
         <line num="28" count="0" type="stmt"/>
         <line num="32" count="2" type="stmt"/>
       </file>
-      <file name="OrderScheduleController.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\controllers\OrderScheduleController.js">
+      <file name="OrderScheduleController.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/controllers/OrderScheduleController.js">
         <metrics statements="36" coveredstatements="32" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
         <line num="8" count="2" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
@@ -155,7 +164,7 @@
         <line num="134" count="0" type="stmt"/>
         <line num="138" count="2" type="stmt"/>
       </file>
-      <file name="PaymentController.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\controllers\PaymentController.js">
+      <file name="PaymentController.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/controllers/PaymentController.js">
         <metrics statements="43" coveredstatements="36" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -201,7 +210,7 @@
         <line num="135" count="0" type="stmt"/>
         <line num="140" count="2" type="stmt"/>
       </file>
-      <file name="UserController.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\controllers\UserController.js">
+      <file name="UserController.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/controllers/UserController.js">
         <metrics statements="35" coveredstatements="33" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -242,7 +251,7 @@
     </package>
     <package name="server.helpers">
       <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
-      <file name="index.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\helpers\index.js">
+      <file name="index.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/helpers/index.js">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -250,10 +259,10 @@
         <line num="6" count="2" type="stmt"/>
         <line num="7" count="4" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
-        <line num="11" count="24" type="stmt"/>
+        <line num="11" count="25" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
       </file>
-      <file name="midtrans.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\helpers\midtrans.js">
+      <file name="midtrans.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/helpers/midtrans.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -262,26 +271,26 @@
     </package>
     <package name="server.middlewares">
       <metrics statements="30" coveredstatements="29" conditionals="18" coveredconditionals="17" methods="3" coveredmethods="3"/>
-      <file name="authentication.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\middlewares\authentication.js">
+      <file name="authentication.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/middlewares/authentication.js">
         <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
-        <line num="5" count="25" type="stmt"/>
-        <line num="6" count="25" type="stmt"/>
-        <line num="7" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="26" type="stmt"/>
+        <line num="6" count="26" type="stmt"/>
+        <line num="7" count="26" type="cond" truecount="2" falsecount="0"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="13" count="24" type="stmt"/>
-        <line num="14" count="20" type="stmt"/>
-        <line num="21" count="20" type="stmt"/>
-        <line num="25" count="20" type="stmt"/>
-        <line num="32" count="20" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="25" type="stmt"/>
+        <line num="14" count="21" type="stmt"/>
+        <line num="21" count="21" type="stmt"/>
+        <line num="25" count="21" type="stmt"/>
+        <line num="32" count="21" type="cond" truecount="2" falsecount="0"/>
         <line num="33" count="9" type="stmt"/>
-        <line num="35" count="20" type="stmt"/>
+        <line num="35" count="21" type="stmt"/>
         <line num="37" count="5" type="stmt"/>
         <line num="38" count="5" type="stmt"/>
         <line num="42" count="2" type="stmt"/>
       </file>
-      <file name="errorHandlers.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\middlewares\errorHandlers.js">
+      <file name="errorHandlers.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/middlewares/errorHandlers.js">
         <metrics statements="14" coveredstatements="13" conditionals="14" coveredconditionals="13" methods="2" coveredmethods="2"/>
         <line num="2" count="18" type="cond" truecount="2" falsecount="0"/>
         <line num="6" count="6" type="stmt"/>
@@ -301,7 +310,7 @@
     </package>
     <package name="server.models">
       <metrics statements="67" coveredstatements="66" conditionals="9" coveredconditionals="6" methods="20" coveredmethods="20"/>
-      <file name="category.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\models\category.js">
+      <file name="category.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/models/category.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -309,7 +318,7 @@
         <line num="15" count="2" type="stmt"/>
         <line num="47" count="2" type="stmt"/>
       </file>
-      <file name="court.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\models\court.js">
+      <file name="court.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/models/court.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -318,7 +327,7 @@
         <line num="16" count="2" type="stmt"/>
         <line num="97" count="2" type="stmt"/>
       </file>
-      <file name="courtcategory.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\models\courtcategory.js">
+      <file name="courtcategory.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/models/courtcategory.js">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -329,7 +338,7 @@
         <line num="18" count="2" type="stmt"/>
         <line num="62" count="2" type="stmt"/>
       </file>
-      <file name="image.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\models\image.js">
+      <file name="image.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/models/image.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -337,7 +346,7 @@
         <line num="15" count="2" type="stmt"/>
         <line num="47" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\models\index.js">
+      <file name="index.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/models/index.js">
         <metrics statements="20" coveredstatements="19" conditionals="9" coveredconditionals="6" methods="3" coveredmethods="3"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
@@ -360,7 +369,7 @@
         <line num="35" count="2" type="stmt"/>
         <line num="37" count="2" type="stmt"/>
       </file>
-      <file name="order.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\models\order.js">
+      <file name="order.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/models/order.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -369,7 +378,7 @@
         <line num="16" count="2" type="stmt"/>
         <line num="49" count="2" type="stmt"/>
       </file>
-      <file name="orderdetail.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\models\orderdetail.js">
+      <file name="orderdetail.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/models/orderdetail.js">
         <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -377,14 +386,14 @@
         <line num="15" count="2" type="stmt"/>
         <line num="95" count="2" type="stmt"/>
       </file>
-      <file name="schedule.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\models\schedule.js">
+      <file name="schedule.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/models/schedule.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
         <line num="22" count="2" type="stmt"/>
       </file>
-      <file name="user.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\models\user.js">
+      <file name="user.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/models/user.js">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -397,9 +406,9 @@
       </file>
     </package>
     <package name="server.routers">
-      <metrics statements="48" coveredstatements="48" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="customerRouter.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\routers\customerRouter.js">
-        <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="50" coveredstatements="50" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="customerRouter.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/routers/customerRouter.js">
+        <metrics statements="24" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -408,22 +417,24 @@
         <line num="6" count="2" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
         <line num="21" count="2" type="stmt"/>
         <line num="23" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
         <line num="25" count="2" type="stmt"/>
         <line num="26" count="2" type="stmt"/>
         <line num="27" count="2" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
       </file>
-      <file name="index.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\routers\index.js">
+      <file name="index.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/routers/index.js">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
@@ -432,7 +443,7 @@
         <line num="6" count="2" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
       </file>
-      <file name="ownerRouter.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\routers\ownerRouter.js">
+      <file name="ownerRouter.js" path="/home/schrn/Documents/Abizarah/Hacktiv8-Phase-3/Finalproject/new Courters/CourterC-server/server/routers/ownerRouter.js">
         <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>

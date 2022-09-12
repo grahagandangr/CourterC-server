@@ -490,6 +490,24 @@ describe("GET /customer/profile", () => {
   });
 });
 
+describe("GET customer categories", () => {
+  test("200 Success get all customer categories", (done) => {
+    request(app)
+      .get("/customer/categories")
+      .set("access_token", validToken)
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(200);
+        expect(body).toEqual(expect.any(Array));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+});
+
 describe("Customer Order Test", () => {
     test("200 Success get all customer orders", (done) => {
       request(app)
@@ -598,3 +616,5 @@ describe("Customer Payment Test", () => {
   });
 
 });
+
+
