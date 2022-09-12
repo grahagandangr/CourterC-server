@@ -190,10 +190,10 @@ describe("owner Login and register Routes Test", () => {
           .end((err, res) => {
             if (err) return done(err);
             const { body, status } = res;
-  
             expect(status).toBe(201);
             expect(body).toEqual(expect.any(Object));
             expect(body).toHaveProperty("message");
+            expect(body).toHaveProperty("access_token");
             // expect(body).toHaveProperty('email', ownerTest.email);
             return done();
           });

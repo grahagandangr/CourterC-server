@@ -27,6 +27,7 @@ module.exports = class CourtController {
   static async createCourt(req, res, next) {
     try {
       const id = req.user.id;
+      
       const { name, description, openHour, closeHour, location, address } =
         req.body;
 
