@@ -10,39 +10,44 @@ class Controller {
   static async payOrders(req, res, next) {
     try {
       const UserId = req.user.id;
-      const cartList = [
-        {
-          date: new Date(),
-          price: 50000,
-          status: "Reserved",
-          CourtCategoryId: 1,
-          ScheduleId: 8,
-        },
-        {
-          date: new Date(),
-          price: 20000,
-          status: "Reserved",
-          CourtCategoryId: 1,
-          ScheduleId: 9,
-        },
-      ];
-      let totalPrice = 0;
-      cartList.forEach((e) => (totalPrice += e.price));
-      console.log(totalPrice);
+      const data = req.body
+      // console.log(data);
+      // console.log(data.cart);
+      // data isinya totalprice, courtCategoryId yg didapat dari asyncStorage
+
+      // const cartList = [
+      //   {
+      //     date: new Date(),
+      //     price: 50000,
+      //     status: "Reserved",
+      //     CourtCategoryId: 1,
+      //     ScheduleId: 8,
+      //   },
+      //   {
+      //     date: new Date(),
+      //     price: 20000,
+      //     status: "Reserved",
+      //     CourtCategoryId: 1,
+      //     ScheduleId: 9,
+      //   },
+      // ];
+      // let totalPrice = 0;
+      // cartList.forEach((e) => (totalPrice += e.price));
+      // console.log(totalPrice);
 
 
       const order = await Order.create({
-        CourtCategoryId: cartList[0].CourtCategoryId,
-        totalPrice,
+        CourtCategoryId: data.cart[0].CourtCategoryId,
+        totalPrice: data.totalPrice,
         UserId,
       });
 
       console.log(order, '======');
-      for (const item of cartList) {
+      for (const item of data.cart) {
         await OrderDetail.create({
-          date: new Date(),
+          date: item.date,
           price: item.price,
-          status: item.status,
+          status: data.status,
           CourtCategoryId: item.CourtCategoryId,
           OrderId: order.id,
           ScheduleId: item.ScheduleId,
@@ -51,12 +56,12 @@ class Controller {
 
       const user = await User.findByPk(UserId);
 
-      if(user.balance < totalPrice){
+      if(user.balance < data.totalPrice){
         throw  {name: 'your balance is not enough'}
       }
       const userBalance = await User.update(
         {
-          balance: user.balance - Number(totalPrice),
+          balance: user.balance - Number(data.totalPrice),
         },
         {
           where: { id: UserId },
