@@ -20,7 +20,7 @@ const { hashPassword } = require("../helpers");
 
 const invalidToken = "123456789eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9";
 let validToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjYyOTUyNjYzfQ.1pddTTYxr1Win4Djc904H2ze2idEeCVjFdtLG29M6PA";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjYyOTYxNTY2fQ.EdvmBsf-oSkhWw7-swwVDEgmV8CNvmRtlvVTpiH566c";
 
 
 
@@ -60,7 +60,6 @@ beforeAll(() => {
     })
     .then(() => {
       let courts = JSON.parse(fs.readFileSync("./data/courts.json", "utf-8"));
-      // console.log(products, "========");
       courts.forEach((court) => {
         court.location = Sequelize.fn(
           "ST_GeomFromText",
@@ -74,7 +73,7 @@ beforeAll(() => {
       let courtCategories = JSON.parse(
         fs.readFileSync("./data/courtCategories.json", "utf-8")
       );
-      // console.log(products, "========");
+   
       courtCategories.forEach((cc) => {
         cc.createdAt = cc.updatedAt = new Date();
       });
@@ -84,7 +83,7 @@ beforeAll(() => {
       let schedules = JSON.parse(
         fs.readFileSync("./data/schedule.json", "utf-8")
       );
-      // console.log(products, "========");
+   
       schedules.forEach((s) => {
         s.createdAt = s.updatedAt = new Date();
       });
@@ -92,7 +91,7 @@ beforeAll(() => {
     })
     .then(() => {
       let images = JSON.parse(fs.readFileSync("./data/images.json", "utf-8"));
-      // console.log(products, "========");
+      
       images.forEach((i) => {
         i.createdAt = i.updatedAt = new Date();
       });
@@ -101,7 +100,7 @@ beforeAll(() => {
 
     .then(() => {
       let orders = JSON.parse(fs.readFileSync("./data/order.json", "utf-8"));
-      // console.log(products, "========");
+     
       orders.forEach((o) => {
         o.createdAt = o.updatedAt = new Date();
       });
@@ -111,7 +110,7 @@ beforeAll(() => {
       let orderDetails = JSON.parse(
         fs.readFileSync("./data/orderDetail.json", "utf-8")
       );
-      // console.log(products, "========");
+ 
       orderDetails.forEach((o) => {
         o.createdAt = o.updatedAt = new Date();
       });
@@ -515,22 +514,21 @@ describe("GET /owner/courts-orderList", () => {
     });    
 });
 
-// describe("PATCH claimPayment", () => {
-//     test("200 Success claim payment ", (done) => {
-//       request(app)
-//         .patch("/owner/claimPayment/1")
-//         .set("access_token", validToken)
-//         .then((response) => {
-//           const { body, status } = response;
-//           expect(status).toBe(200);
-//           expect(status).toBeInstanceOf(Object)
-//           expect(body).toEqual(expect.any(Object))
-//           expect(body).toHaveProperty('msg', expect.any(String))
-//           done();
-//         })
-//         .catch((err) => {
-//           done(err);
-//         });
-//     });    
-// });
+describe("PATCH claimPayment", () => {
+    test("200 Success claim payment ", (done) => {
+      request(app)
+        .patch("/owner/claimPayment/2")
+        .set("access_token", validToken)
+        .then((response) => {
+          const { body, status } = response;
+          expect(status).toBe(200);
+          expect(body).toEqual(expect.any(Object))
+          expect(body).toHaveProperty('message', expect.any(String))
+          done();
+        })
+        .catch((err) => {
+          done(err);
+        });
+    });    
+});
 
