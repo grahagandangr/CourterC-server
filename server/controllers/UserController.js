@@ -13,10 +13,6 @@ class UserController {
         coordinates: [0, 0],
       };
 
-      // if (!password) {
-      //   throw { name: "Password is required" };
-      // }
-
       const newUser = await User.create({
         username,
         email,
@@ -32,65 +28,60 @@ class UserController {
         message: `Success register`,
       });
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
 
-  static async registerOwner (req, res, next){
-
+  static async registerOwner(req, res, next) {
     try {
-
-      const { username, email, password, role, phoneNumber, address } = req.body
+      const { username, email, password, role, phoneNumber, address } =
+        req.body;
 
       let userLocation = {
-        type: 'POINT',
-        coordinates: [0, 0]
-      }
+        type: "POINT",
+        coordinates: [0, 0],
+      };
 
       if (!email || !password) {
         throw { name: "Email/Password is required" };
       }
 
       const user = await User.create({
-        username, email, password, role, 
-        phoneNumber, address, balance: 0, 
-        location: userLocation
-      })
+        username,
+        email,
+        password,
+        role,
+        phoneNumber,
+        address,
+        balance: 0,
+        location: userLocation,
+      });
 
-      
       const login = await User.findOne({
         where: {
-          email: user.email
-        }
-      })
+          email: user.email,
+        },
+      });
 
-      console.log(login, '<======')
+      if (!login) throw { name: "Invalid_email/password" };
 
-      if(!login) throw {name: "Invalid_email/password"}
+      const comparePass = compareHash(password, login.password);
 
-      const comparePass = compareHash(password, login.password)
-
-      if(!comparePass) throw {name : "Invalid_email/password"}
+      if (!comparePass) throw { name: "Invalid_email/password" };
 
       const payload = {
-        id: login.id
-      }
+        id: login.id,
+      };
 
-      const access_token = createToken(payload)
+      const access_token = createToken(payload);
 
       res.status(201).json({
-        message: 'success register owner',
-        access_token
-      })
-      
+        message: "success register owner",
+        access_token,
+      });
     } catch (error) {
-
-      next(error)
-      console.log(error)
-      
+      next(error);
     }
-    
   }
 
   static async login(req, res, next) {
@@ -143,11 +134,9 @@ class UserController {
 
       res.status(200).json(user);
     } catch (error) {
-      next(error)
-      console.log(error);
+      next(error);
     }
   }
-
 }
 
 module.exports = UserController;

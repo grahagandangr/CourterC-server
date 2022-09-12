@@ -23,4 +23,6 @@ ownerRouter.post('/courtCategories', CourtCategoryController.createCourtCategory
 ownerRouter.get('/courts-orderLists', OrderScheduleController.getOrderOwner) //ini untuk dapat order list si owner
 ownerRouter.patch('/claimPayment/:orderDetailId', PaymentController.claimPaymentOwner )
 
+ownerRouter.get('/profile', UserController.getUserDetail) //done
+
 module.exports = ownerRouter;

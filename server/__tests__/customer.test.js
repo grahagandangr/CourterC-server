@@ -488,6 +488,20 @@ describe("GET /customer/profile", () => {
         done(err);
       });
   });
+
+  test("401 Fail get profile because not logged in yet", (done) => {
+    request(app)
+      .get("/customer/profile")
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(401);
+        expect(body).toEqual(expect.any(Object));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
 });
 
 describe("GET customer categories", () => {
