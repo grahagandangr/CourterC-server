@@ -12,11 +12,11 @@ async function authentication(req, res, next) {
 
     let payload = verifyToken(access_token);
     let user = await User.findByPk(payload.id);
-    if (!user) {
-      throw {
-        name: "JsonWebTokenError",
-      };
-    }
+    // if (!user) {
+    //   throw {
+    //     name: "JsonWebTokenError",
+    //   };
+    // }
 
     const court = await Court.findOne({
       where: { UserId: user.id },

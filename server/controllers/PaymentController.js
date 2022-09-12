@@ -5,7 +5,7 @@ class PaymentController {
   static async topUpBalance(req, res, next) {
     try {
       const inputAmount = req.body.amount;
-      const { id, email, username } = req.user;
+      const { email, username } = req.user;
       let parameter = {
         transaction_details: {
           order_id: new Date().getTime(),
@@ -50,15 +50,13 @@ class PaymentController {
         inputAmount,
       });
     } catch (error) {
-      // next(error);
-      console.log(error);
+      next(error);
     }
   }
 
   static async updateBalance(req, res, next) {
     try {
       const inputAmount = req.inputAmount;
-      console.log(inputAmount, "+++++");
       const { id } = req.user;
 
       const { gross_amount } = req.body;
@@ -102,20 +100,21 @@ class PaymentController {
         message: "Success cancelled order",
       });
     } catch (error) {
+      next(error)
       console.log(error);
     }
   }
 
   static async claimPaymentOwner(req, res, next){
     try {
-      const id =req.user.id
+      const id = req.user.id
       const { orderDetailId } = req.params;
       const user = await User.findByPk(id);
       const orderDetail = await OrderDetail.findByPk(orderDetailId);
 
       const updateBalanceOwner = await User.update(
         {
-          balance: user.balance + orderDetail.price,
+          balance: user.balance + Number(orderDetail.price),
         },
         {
           where: { id },
@@ -129,9 +128,10 @@ class PaymentController {
         }
       );
       res.status(200).json({
-        msg: "Success claim payment",
+        message: "Success claim payment",
       });
     } catch (error) {
+      next(error)
       console.log(error);
     }
   }

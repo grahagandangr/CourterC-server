@@ -1,6 +1,5 @@
 const PaymentController = require("../controllers/PaymentController");
 const UserController = require("../controllers/UserController");
-const SchedulesControllers = require("../controllers/SchedulesControllers");
 const CourtDetailController = require("../controllers/CourtDetailController");
 const OrderScheduleController = require("../controllers/OrderScheduleController");
 const CourtCategoryController = require("../controllers/CourtCategoryController");

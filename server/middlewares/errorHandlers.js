@@ -24,14 +24,6 @@ function errorHandlers(error, req, res, next) {
     res.status(403).json({
       message: "your balance is not enough",
     });
-  } else if (error.name === "SequelizeForeignKeyConstraintError") {
-    res.status(404).json({
-      message: "Product is Not Found",
-    });
-  } else if (error.name === "NotFound") {
-    res.status(404).json({
-      message: "Court/Courtcategory is Not Found",
-    });
   } else {
     res.status(500).json({
       message: "Internal Server error",

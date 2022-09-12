@@ -20,7 +20,9 @@ const { hashPassword } = require("../helpers");
 
 const invalidToken = "123456789eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9";
 let validToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjYyOTUyNTIzfQ.aILp-d5VxtINkmagNghkDkl1MH2mSOiKyq98o2xQMgY";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjYyOTYxNjA4fQ.rcyHy4ZlufmE5gJ-nt11T3qJ96TccSBs3GmXnV1Qcfk";
+let validTokenFailPayment = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjYyOTU2OTMwfQ.5ffAw8pFyqd7OmEhrpIkXev7seCBOImqlUl1Cx8z5ok'
+
 
 const customerTest = {
   username: "test1",
@@ -98,6 +100,7 @@ beforeAll(() => {
       orders.forEach((o) => {
         o.createdAt = o.updatedAt = new Date();
       });
+      console.log(orders, '==========');
       return queryInterface.bulkInsert("Orders", orders);
     })
     .then(() => {
@@ -107,6 +110,7 @@ beforeAll(() => {
       orderDetails.forEach((o) => {
         o.createdAt = o.updatedAt = new Date();
       });
+      console.log(orderDetails, '+++++++++');
       return queryInterface.bulkInsert("OrderDetails", orderDetails);
     })
 
@@ -439,7 +443,7 @@ describe("GET /customer/courts", () => {
 
   test("200 Success get court categories detail by id", (done) => {
     request(app)
-      .get(`/customer/courts/1`)
+      .get(`/customer/courts/2`)
       .set("access_token", validToken)
       .then((response) => {
         const { body, status } = response;
@@ -568,6 +572,22 @@ describe("Customer Payment Test", () => {
       .then((response) => {
         const { body, status } = response;
         expect(status).toBe(200);
+        expect(body).toEqual(expect.any(Object));
+        expect(body).toHaveProperty("message", expect.any(String))
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  })
+
+  test("200 Unsuccess pay order because balance is not enough", (done) => {
+    request(app)
+      .post("/customer/pay-orders")
+      .set("access_token", validTokenFailPayment)
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(403);
         expect(body).toEqual(expect.any(Object));
         expect(body).toHaveProperty("message", expect.any(String))
         done();

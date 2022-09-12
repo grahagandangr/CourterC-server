@@ -9,10 +9,10 @@
     },
     {
         "OrderId": 1,
-        "status": "Cancel",
+        "status": "Reserved",
         "ScheduleId": 2,
         "date": "2022-09-09T15:44:31.256Z",
-        "CourtCategoryId": 1,
+        "CourtCategoryId": 2,
         "price": 250000
     }
 
