@@ -7,7 +7,7 @@ const PaymentController = require("../controllers/PaymentController");
 const ownerRouter = require("express").Router();
 
 
-ownerRouter.post("/register", UserController.register); //done
+ownerRouter.post("/register", UserController.registerOwner); //done
 ownerRouter.post("/login", UserController.login); //done
 
 ownerRouter.use(authentication)
@@ -22,5 +22,7 @@ ownerRouter.post('/courtCategories', CourtCategoryController.createCourtCategory
 
 ownerRouter.get('/courts-orderLists', OrderScheduleController.getOrderOwner) //ini untuk dapat order list si owner
 ownerRouter.patch('/claimPayment/:orderDetailId', PaymentController.claimPaymentOwner )
+
+ownerRouter.get('/profile', UserController.getUserDetail) //done
 
 module.exports = ownerRouter;

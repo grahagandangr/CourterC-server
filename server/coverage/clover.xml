@@ -1,27 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1662956066088" clover="3.2.0">
-  <project timestamp="1662956066088" name="All files">
-    <metrics statements="375" coveredstatements="327" conditionals="51" coveredconditionals="39" methods="57" coveredmethods="54" elements="483" coveredelements="420" complexity="0" loc="375" ncloc="375" packages="6" files="24" classes="24"/>
+<coverage generated="1662981616486" clover="3.2.0">
+  <project timestamp="1662981616487" name="All files">
+    <metrics statements="387" coveredstatements="361" conditionals="53" coveredconditionals="47" methods="59" coveredmethods="59" elements="499" coveredelements="467" complexity="0" loc="387" ncloc="387" packages="6" files="24" classes="24"/>
     <package name="server">
       <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\app.js">
         <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
         <line num="10" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
         <line num="17" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
       </file>
     </package>
     <package name="server.controllers">
-      <metrics statements="200" coveredstatements="161" conditionals="18" coveredconditionals="17" methods="30" coveredmethods="27"/>
+      <metrics statements="216" coveredstatements="192" conditionals="26" coveredconditionals="24" methods="32" coveredmethods="32"/>
+      <file name="CategoryController.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\controllers\CategoryController.js">
+        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+      </file>
       <file name="CourtCategoryController.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\controllers\CourtCategoryController.js">
         <metrics statements="52" coveredstatements="45" conditionals="6" coveredconditionals="6" methods="12" coveredmethods="12"/>
         <line num="1" count="2" type="stmt"/>
@@ -78,7 +87,7 @@
         <line num="219" count="0" type="stmt"/>
       </file>
       <file name="CourtController.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\controllers\CourtController.js">
-        <metrics statements="23" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <metrics statements="20" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
@@ -86,22 +95,19 @@
         <line num="7" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="33" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="51" count="1" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
       </file>
       <file name="CourtDetailController.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\controllers\CourtDetailController.js">
         <metrics statements="12" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
@@ -119,25 +125,25 @@
         <line num="32" count="2" type="stmt"/>
       </file>
       <file name="OrderScheduleController.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\controllers\OrderScheduleController.js">
-        <metrics statements="36" coveredstatements="26" conditionals="2" coveredconditionals="1" methods="6" coveredmethods="4"/>
+        <metrics statements="36" coveredstatements="32" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
         <line num="8" count="2" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="42" count="2" type="stmt"/>
-        <line num="52" count="1" type="stmt"/>
-        <line num="54" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="55" count="0" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="4" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="54" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="55" count="1" type="stmt"/>
         <line num="57" count="1" type="stmt"/>
         <line num="65" count="1" type="stmt"/>
-        <line num="69" count="0" type="stmt"/>
-        <line num="70" count="0" type="stmt"/>
+        <line num="69" count="1" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
         <line num="75" count="1" type="stmt"/>
         <line num="76" count="1" type="stmt"/>
         <line num="77" count="1" type="stmt"/>
@@ -148,17 +154,17 @@
         <line num="94" count="1" type="stmt"/>
         <line num="95" count="1" type="stmt"/>
         <line num="118" count="1" type="stmt"/>
-        <line num="119" count="0" type="stmt"/>
+        <line num="119" count="1" type="stmt"/>
         <line num="121" count="1" type="stmt"/>
-        <line num="122" count="0" type="stmt"/>
-        <line num="123" count="0" type="stmt"/>
+        <line num="122" count="1" type="stmt"/>
+        <line num="123" count="1" type="stmt"/>
         <line num="131" count="1" type="stmt"/>
         <line num="133" count="0" type="stmt"/>
         <line num="134" count="0" type="stmt"/>
         <line num="138" count="2" type="stmt"/>
       </file>
       <file name="PaymentController.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\controllers\PaymentController.js">
-        <metrics statements="42" coveredstatements="29" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+        <metrics statements="43" coveredstatements="36" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
@@ -170,78 +176,88 @@
         <line num="43" count="1" type="stmt"/>
         <line num="45" count="1" type="stmt"/>
         <line num="47" count="1" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
         <line num="59" count="1" type="stmt"/>
         <line num="60" count="1" type="stmt"/>
-        <line num="61" count="1" type="stmt"/>
         <line num="62" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
         <line num="64" count="1" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
-        <line num="66" count="1" type="stmt"/>
+        <line num="69" count="1" type="stmt"/>
         <line num="71" count="1" type="stmt"/>
-        <line num="73" count="1" type="stmt"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="76" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
         <line num="81" count="1" type="stmt"/>
         <line num="82" count="1" type="stmt"/>
         <line num="83" count="1" type="stmt"/>
         <line num="84" count="1" type="stmt"/>
-        <line num="85" count="1" type="stmt"/>
-        <line num="86" count="1" type="stmt"/>
-        <line num="95" count="1" type="stmt"/>
-        <line num="101" count="1" type="stmt"/>
-        <line num="105" count="0" type="stmt"/>
-        <line num="110" count="0" type="stmt"/>
-        <line num="111" count="0" type="stmt"/>
-        <line num="112" count="0" type="stmt"/>
-        <line num="113" count="0" type="stmt"/>
-        <line num="114" count="0" type="stmt"/>
-        <line num="116" count="0" type="stmt"/>
-        <line num="125" count="0" type="stmt"/>
-        <line num="131" count="0" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
+        <line num="99" count="1" type="stmt"/>
+        <line num="103" count="0" type="stmt"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="109" count="1" type="stmt"/>
+        <line num="110" count="1" type="stmt"/>
+        <line num="111" count="1" type="stmt"/>
+        <line num="112" count="1" type="stmt"/>
+        <line num="113" count="1" type="stmt"/>
+        <line num="115" count="1" type="stmt"/>
+        <line num="124" count="1" type="stmt"/>
+        <line num="130" count="1" type="stmt"/>
+        <line num="134" count="0" type="stmt"/>
         <line num="135" count="0" type="stmt"/>
         <line num="140" count="2" type="stmt"/>
       </file>
-      <file name="SchedulesControllers.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\controllers\SchedulesControllers.js">
-        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      </file>
       <file name="UserController.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\controllers\UserController.js">
-        <metrics statements="35" coveredstatements="33" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
+        <metrics statements="47" coveredstatements="46" conditionals="16" coveredconditionals="14" methods="4" coveredmethods="4"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
-        <line num="6" count="8" type="stmt"/>
-        <line num="8" count="8" type="stmt"/>
-        <line num="9" count="8" type="stmt"/>
-        <line num="11" count="8" type="stmt"/>
-        <line num="20" count="8" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
-        <line num="35" count="6" type="stmt"/>
-        <line num="36" count="6" type="stmt"/>
-        <line num="41" count="8" type="stmt"/>
-        <line num="42" count="8" type="stmt"/>
-        <line num="43" count="8" type="cond" truecount="4" falsecount="0"/>
-        <line num="44" count="2" type="stmt"/>
-        <line num="47" count="6" type="stmt"/>
-        <line num="51" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="52" count="2" type="stmt"/>
-        <line num="55" count="4" type="stmt"/>
-        <line num="57" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="58" count="2" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
-        <line num="65" count="2" type="stmt"/>
-        <line num="67" count="2" type="stmt"/>
-        <line num="68" count="2" type="stmt"/>
-        <line num="69" count="2" type="stmt"/>
-        <line num="70" count="2" type="stmt"/>
-        <line num="77" count="6" type="stmt"/>
-        <line num="78" count="6" type="stmt"/>
-        <line num="83" count="1" type="stmt"/>
-        <line num="84" count="1" type="stmt"/>
-        <line num="86" count="1" type="stmt"/>
-        <line num="88" count="1" type="stmt"/>
-        <line num="90" count="0" type="stmt"/>
-        <line num="91" count="0" type="stmt"/>
-        <line num="96" count="2" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="45" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="66" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="70" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="72" count="1" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="83" count="2" type="stmt"/>
+        <line num="88" count="8" type="stmt"/>
+        <line num="89" count="8" type="stmt"/>
+        <line num="90" count="8" type="cond" truecount="4" falsecount="0"/>
+        <line num="91" count="2" type="stmt"/>
+        <line num="94" count="6" type="stmt"/>
+        <line num="98" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="99" count="2" type="stmt"/>
+        <line num="102" count="4" type="stmt"/>
+        <line num="104" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="105" count="2" type="stmt"/>
+        <line num="108" count="2" type="stmt"/>
+        <line num="112" count="2" type="stmt"/>
+        <line num="114" count="2" type="stmt"/>
+        <line num="115" count="2" type="stmt"/>
+        <line num="116" count="2" type="stmt"/>
+        <line num="117" count="2" type="stmt"/>
+        <line num="124" count="6" type="stmt"/>
+        <line num="125" count="6" type="stmt"/>
+        <line num="130" count="1" type="stmt"/>
+        <line num="131" count="1" type="stmt"/>
+        <line num="133" count="1" type="stmt"/>
+        <line num="135" count="1" type="stmt"/>
+        <line num="137" count="0" type="stmt"/>
+        <line num="142" count="2" type="stmt"/>
       </file>
     </package>
     <package name="server.helpers">
@@ -252,9 +268,9 @@
         <line num="2" count="2" type="stmt"/>
         <line num="4" count="16" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="11" count="22" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="11" count="25" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
       </file>
       <file name="midtrans.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\helpers\midtrans.js">
@@ -265,48 +281,42 @@
       </file>
     </package>
     <package name="server.middlewares">
-      <metrics statements="36" coveredstatements="28" conditionals="24" coveredconditionals="16" methods="3" coveredmethods="3"/>
+      <metrics statements="30" coveredstatements="29" conditionals="18" coveredconditionals="17" methods="3" coveredmethods="3"/>
       <file name="authentication.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\middlewares\authentication.js">
-        <metrics statements="18" coveredstatements="17" conditionals="6" coveredconditionals="5" methods="1" coveredmethods="1"/>
+        <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
-        <line num="5" count="23" type="stmt"/>
-        <line num="6" count="23" type="stmt"/>
-        <line num="7" count="23" type="cond" truecount="2" falsecount="0"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="13" count="22" type="stmt"/>
-        <line num="14" count="18" type="stmt"/>
-        <line num="15" count="18" type="cond" truecount="1" falsecount="1"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="21" count="18" type="stmt"/>
-        <line num="25" count="18" type="stmt"/>
-        <line num="32" count="18" type="cond" truecount="2" falsecount="0"/>
-        <line num="33" count="8" type="stmt"/>
-        <line num="35" count="18" type="stmt"/>
-        <line num="37" count="5" type="stmt"/>
-        <line num="38" count="5" type="stmt"/>
+        <line num="5" count="27" type="stmt"/>
+        <line num="6" count="27" type="stmt"/>
+        <line num="7" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="13" count="25" type="stmt"/>
+        <line num="14" count="21" type="stmt"/>
+        <line num="21" count="21" type="stmt"/>
+        <line num="25" count="21" type="stmt"/>
+        <line num="32" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="9" type="stmt"/>
+        <line num="35" count="21" type="stmt"/>
+        <line num="37" count="6" type="stmt"/>
+        <line num="38" count="6" type="stmt"/>
         <line num="42" count="2" type="stmt"/>
       </file>
       <file name="errorHandlers.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\middlewares\errorHandlers.js">
-        <metrics statements="18" coveredstatements="11" conditionals="18" coveredconditionals="11" methods="2" coveredmethods="2"/>
-        <line num="2" count="17" type="cond" truecount="2" falsecount="0"/>
-        <line num="6" count="6" type="stmt"/>
-        <line num="7" count="11" type="cond" truecount="2" falsecount="0"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="11" count="9" type="cond" truecount="2" falsecount="0"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="15" count="8" type="cond" truecount="2" falsecount="0"/>
+        <metrics statements="14" coveredstatements="13" conditionals="14" coveredconditionals="13" methods="2" coveredmethods="2"/>
+        <line num="2" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="11" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="15" count="9" type="cond" truecount="2" falsecount="0"/>
         <line num="16" count="4" type="stmt"/>
-        <line num="19" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="19" count="5" type="cond" truecount="2" falsecount="0"/>
         <line num="20" count="4" type="stmt"/>
-        <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="27" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="24" count="1" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
-        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="42" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
       </file>
     </package>
     <package name="server.models">
@@ -407,9 +417,9 @@
       </file>
     </package>
     <package name="server.routers">
-      <metrics statements="49" coveredstatements="49" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <metrics statements="51" coveredstatements="51" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="customerRouter.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\routers\customerRouter.js">
-        <metrics statements="23" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="24" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -423,15 +433,16 @@
         <line num="12" count="2" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
         <line num="20" count="2" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
         <line num="25" count="2" type="stmt"/>
         <line num="26" count="2" type="stmt"/>
         <line num="27" count="2" type="stmt"/>
         <line num="28" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
         <line num="31" count="2" type="stmt"/>
       </file>
       <file name="index.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\routers\index.js">
@@ -444,7 +455,7 @@
         <line num="8" count="2" type="stmt"/>
       </file>
       <file name="ownerRouter.js" path="D:\rmt-26\p3\FINAL-PROJECT-v3\CourterC-server\server\routers\ownerRouter.js">
-        <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="21" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -465,6 +476,7 @@
         <line num="23" count="2" type="stmt"/>
         <line num="24" count="2" type="stmt"/>
         <line num="26" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
       </file>
     </package>
   </project>
