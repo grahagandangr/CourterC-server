@@ -5,6 +5,7 @@ class Controller {
     try {
       const { id } = req.params;
       const {date} = req.query
+      console.log(date, '<<<<<<<<<<');
       const courtDetail = await CourtCategory.findOne({
         where: { id },
         include: [
