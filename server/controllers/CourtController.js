@@ -6,6 +6,7 @@ module.exports = class CourtController {
       const id = req.user.id;
       const court = await Court.findAll({
         where: { UserId: id },
+        include: { all: true, nested: true }
       });
 
       res.status(200).json(court);

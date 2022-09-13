@@ -91,7 +91,7 @@ class PaymentController {
       );
 
       await OrderDetail.update(
-        { status: "Cancelled" },
+        { status: "Canceled" },
         {
           where: { id: orderDetailId },
         }
