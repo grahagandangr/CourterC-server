@@ -94,10 +94,10 @@ module.exports = class CourtCategoryController {
         JOIN "Categories" ca ON ca.id = cc."CategoryId" 
         JOIN "Images" i ON cc.id = i."CourtCategoryId" 
         where
-                    ST_DWithin(c.location,
-                      ST_MakePoint(:lat, :long),
-                      :distance,
-                      true) = true;`,
+          ST_DWithin(c.location,
+            ST_MakePoint(:lat, :long),
+            :distance,
+            true) = true;`,
         {
           replacements: {
             distance: +distance,

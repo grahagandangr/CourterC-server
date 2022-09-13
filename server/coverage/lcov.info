@@ -23,8 +23,6 @@ BRF:2
 BRH:1
 end_of_record
 TN:
-<<<<<<< HEAD
-=======
 SF:controllers/CategoryController.js
 FN:5,(anonymous_0)
 FNF:1
@@ -42,7 +40,6 @@ BRF:0
 BRH:0
 end_of_record
 TN:
->>>>>>> da1a48cb17ec5cc69111a3af68f9df2ff43205ed
 SF:controllers/CourtCategoryController.js
 FN:5,(anonymous_0)
 FN:26,(anonymous_1)
@@ -407,28 +404,16 @@ FN:11,(anonymous_3)
 FNF:4
 FNH:4
 FNDA:16,(anonymous_0)
-<<<<<<< HEAD
 FNDA:5,(anonymous_1)
 FNDA:3,(anonymous_2)
-FNDA:24,(anonymous_3)
-=======
-FNDA:4,(anonymous_1)
-FNDA:2,(anonymous_2)
 FNDA:25,(anonymous_3)
->>>>>>> da1a48cb17ec5cc69111a3af68f9df2ff43205ed
 DA:1,2
 DA:2,2
 DA:4,16
 DA:6,2
-<<<<<<< HEAD
 DA:7,5
 DA:9,3
-DA:11,24
-=======
-DA:7,4
-DA:9,2
 DA:11,25
->>>>>>> da1a48cb17ec5cc69111a3af68f9df2ff43205ed
 DA:13,2
 LF:8
 LH:8
@@ -741,17 +726,11 @@ DA:23,2
 DA:25,2
 DA:26,2
 DA:27,2
-<<<<<<< HEAD
-DA:29,2
-LF:22
-LH:22
-=======
 DA:28,2
 DA:29,2
 DA:31,2
 LF:24
 LH:24
->>>>>>> da1a48cb17ec5cc69111a3af68f9df2ff43205ed
 BRF:0
 BRH:0
 end_of_record

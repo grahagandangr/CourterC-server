@@ -52,36 +52,46 @@ class UserController {
         throw { name: "Email/Password is required" };
       }
 
-      const user = await User.create({
+      const createUser = await User.create({
         username, email, password, role, 
         phoneNumber, address, balance: 0, 
         location: userLocation
       })
 
-      
-      const login = await User.findOne({
+      const user = await User.findOne({
         where: {
-          email: user.email
+          email: createUser.email
         }
       })
 
-      console.log(login, '<======')
+      if(!user) throw {name: "Invalid_email/password"}
 
-      if(!login) throw {name: "Invalid_email/password"}
-
-      const comparePass = compareHash(password, login.password)
+      const comparePass = compareHash(password, user.password)
 
       if(!comparePass) throw {name : "Invalid_email/password"}
 
       const payload = {
-        id: login.id
+        id: user.id
+      }
+
+      const talkId = {
+        id: user.id,
+        name: user.username,
+        email: user.email,
+        balance: user.balance,
+        address: user.address,
+        location: user.location,
+        phoneNumber: user.phoneNumber,
+        role: user.role,
+        TalkJSID: `O-${user.id}`,
       }
 
       const access_token = createToken(payload)
 
       res.status(201).json({
         message: 'success register owner',
-        access_token
+        access_token,
+        talkId
       })
       
     } catch (error) {
@@ -118,16 +128,26 @@ class UserController {
         id: user.id,
       };
 
-      const access_token = createToken(payload);
+      const talkId = {
+        id: user.id,
+        name: user.username,
+        email: user.email,
+        balance: user.balance,
+        address: user.address,
+        location: user.location,
+        phoneNumber: user.phoneNumber,
+        role: user.role,
+        TalkJSID: `C-${user.id}`,
+      }
 
-      const username = user.username;
-      const id = user.id;
-      const role = user.role;
+      const access_token = createToken(payload);
+      const username = user.username
+      const id = user.id
+      const role = user.role
       res.status(200).json({
         access_token,
-        username,
-        id,
-        role,
+        talkId,
+        username, id, role
       });
     } catch (error) {
       next(error);
