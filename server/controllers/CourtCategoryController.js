@@ -81,7 +81,7 @@ module.exports = class CourtCategoryController {
 
   static async getAllByRadius(req, res, next) {
     try {
-      const distance = req.query.distance || 20000;
+      const distance = req.query.distance || 200000000000;
       const lat = req.query.lat || -6.25881;
       const long = req.query.long || 106.82932;
 
@@ -94,10 +94,10 @@ module.exports = class CourtCategoryController {
         JOIN "Categories" ca ON ca.id = cc."CategoryId" 
         JOIN "Images" i ON cc.id = i."CourtCategoryId" 
         where
-                    ST_DWithin(c.location,
-                      ST_MakePoint(:lat, :long),
-                      :distance,
-                      true) = true;`,
+          ST_DWithin(c.location,
+            ST_MakePoint(:lat, :long),
+            :distance,
+            true) = true;`,
         {
           replacements: {
             distance: +distance,
