@@ -81,7 +81,7 @@ module.exports = class CourtCategoryController {
 
   static async getAllByRadius(req, res, next) {
     try {
-      const distance = req.query.distance || 20000;
+      const distance = req.query.distance || 200000000000;
       const lat = req.query.lat || -6.25881;
       const long = req.query.long || 106.82932;
 
