@@ -77,7 +77,6 @@ class Controller {
       });
 
       const schedule = await Schedule.findAll();
-      console.log(order);
       res.status(200).json({ order, schedule });
     } catch (error) {
       next(error);
@@ -109,11 +108,10 @@ class Controller {
           },
         ],
       });
-
+      const schedule = await Schedule.findAll();
       // const user = order.map(e=> e.CourtCategory.Court.User)
       const owner = order.filter((e) => e.CourtCategory.Court.User.id === ownerId);
       const ownerOrders = owner.map((e) => {
-        console.log(e.OrderDetail);
         return {
           name: e.CourtCategory.Court.name + "-" + e.CourtCategory.Category.name,
           totalPrice: e.totalPrice,
@@ -121,7 +119,7 @@ class Controller {
         };
       });
 
-      res.status(200).json(ownerOrders);
+      res.status(200).json({ownerOrders, schedule});
     } catch (error) {
       next(error);
       console.log(error);
