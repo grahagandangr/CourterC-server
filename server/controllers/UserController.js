@@ -80,7 +80,6 @@ class UserController {
       };
 
       const access_token = createToken(payload);
-      console.log(access_token);
       res.status(201).json({
         message: "success register owner",
         access_token,
