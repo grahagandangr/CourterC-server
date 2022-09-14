@@ -86,7 +86,7 @@ console.log(access_token);
         access_token,
         username: login.username,
         id: login.id,
-        role: login.role
+        role: login.role,
         talkId
       });
     } catch (error) {
