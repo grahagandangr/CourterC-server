@@ -1,33 +1,18 @@
-const { User, Order, OrderDetail, CourtCategory, Court, Category, Schedule } = require("../models");
+const {
+  User,
+  Order,
+  OrderDetail,
+  CourtCategory,
+  Court,
+  Category,
+  Schedule,
+} = require("../models");
 class Controller {
   static async payOrders(req, res, next) {
     try {
       const UserId = req.user.id;
       const data = req.body;
-      // console.log(data);
-      // console.log(data.cart);
       // data isinya totalprice, courtCategoryId yg didapat dari asyncStorage
-
-      // const cartList = [
-      //   {
-      //     date: new Date(),
-      //     price: 50000,
-      //     status: "Reserved",
-      //     CourtCategoryId: 1,
-      //     ScheduleId: 8,
-      //   },
-      //   {
-      //     date: new Date(),
-      //     price: 20000,
-      //     status: "Reserved",
-      //     CourtCategoryId: 1,
-      //     ScheduleId: 9,
-      //   },
-      // ];
-      // let totalPrice = 0;
-      // cartList.forEach((e) => (totalPrice += e.price));
-      // console.log(totalPrice);
-
       const order = await Order.create({
         CourtCategoryId: data.cart[0].CourtCategoryId,
         totalPrice: data.totalPrice,
@@ -64,7 +49,6 @@ class Controller {
       });
     } catch (error) {
       next(error);
-      console.log(error);
     }
   }
 
@@ -80,7 +64,6 @@ class Controller {
       res.status(200).json({ order, schedule });
     } catch (error) {
       next(error);
-      console.log(error);
     }
   }
 
@@ -90,7 +73,7 @@ class Controller {
       const order = await Order.findAll({
         include: [
           {
-            model: CourtCategory, 
+            model: CourtCategory,
             include: [
               {
                 model: Court,
@@ -107,27 +90,28 @@ class Controller {
             model: OrderDetail,
           },
           {
-            model: User
-          }
-
+            model: User,
+          },
         ],
       });
       const schedule = await Schedule.findAll();
       // const user = order.map(e=> e.CourtCategory.Court.User)
-      const owner = order.filter((e) => e.CourtCategory.Court.User.id === ownerId);
+      const owner = order.filter(
+        (e) => e.CourtCategory.Court.User.id === ownerId
+      );
       const ownerOrders = owner.map((e) => {
         return {
-          name: e.CourtCategory.Court.name + "-" + e.CourtCategory.Category.name,
+          name:
+            e.CourtCategory.Court.name + "-" + e.CourtCategory.Category.name,
           totalPrice: e.totalPrice,
           orderDetails: e.OrderDetails,
-          customer: e.User
+          customer: e.User,
         };
       });
 
-      res.status(200).json({ownerOrders, schedule});
+      res.status(200).json({ ownerOrders, schedule });
     } catch (error) {
       next(error);
-      console.log(error);
     }
   }
 }

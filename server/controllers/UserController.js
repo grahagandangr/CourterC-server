@@ -45,49 +45,49 @@ class UserController {
         throw { name: "Email/Password is required" };
       }
 
-
       const createUser = await User.create({
-        username, email, password, role, 
-        phoneNumber, address, balance: 0, 
-        location: userLocation
-      })
+        username,
+        email,
+        password,
+        role,
+        phoneNumber,
+        address,
+        balance: 0,
+        location: userLocation,
+      });
 
       const user = await User.findOne({
         where: {
-          email: createUser.email
-        }
-      })
+          email: createUser.email,
+        },
+      });
 
-      if(!user) throw {name: "Invalid_email/password"}
+      if (!user) throw { name: "Invalid_email/password" };
 
-      const comparePass = compareHash(password, user.password)
+      const comparePass = compareHash(password, user.password);
       if (!comparePass) throw { name: "Invalid_email/password" };
 
       const payload = {
-        id: user.id
-      }
+        id: user.id,
+      };
 
       const talkId = {
         id: user.id,
         name: user.username,
         email: user.email,
-        balance: user.balance,
-        address: user.address,
-        location: user.location,
-        phoneNumber: user.phoneNumber,
         role: user.role,
         TalkJSID: `O-${user.id}`,
-      }
+      };
 
       const access_token = createToken(payload);
-console.log(access_token);
+      console.log(access_token);
       res.status(201).json({
-        message: 'success register owner',
+        message: "success register owner",
         access_token,
-        username: login.username,
-        id: login.id,
-        role: login.role,
-        talkId
+        username: user.username,
+        id: user.id,
+        role: user.role,
+        talkId,
       });
     } catch (error) {
       next(error);
@@ -123,22 +123,20 @@ console.log(access_token);
         id: user.id,
         name: user.username,
         email: user.email,
-        balance: user.balance,
-        address: user.address,
-        location: user.location,
-        phoneNumber: user.phoneNumber,
         role: user.role,
         TalkJSID: `C-${user.id}`,
-      }
+      };
 
       const access_token = createToken(payload);
-      const username = user.username
-      const id = user.id
-      const role = user.role
+      const username = user.username;
+      const id = user.id;
+      const role = user.role;
       res.status(200).json({
         access_token,
         talkId,
-        username, id, role
+        username,
+        id,
+        role,
       });
     } catch (error) {
       next(error);

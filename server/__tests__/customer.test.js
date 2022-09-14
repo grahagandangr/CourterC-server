@@ -20,9 +20,9 @@ const { hashPassword } = require("../helpers");
 
 const invalidToken = "123456789eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9";
 let validToken =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjYyOTYxNjA4fQ.rcyHy4ZlufmE5gJ-nt11T3qJ96TccSBs3GmXnV1Qcfk";
-let validTokenFailPayment = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjYyOTU2OTMwfQ.5ffAw8pFyqd7OmEhrpIkXev7seCBOImqlUl1Cx8z5ok'
-
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjYzMTQ2ODE3fQ.E-9PNiwbAuQ6o2wDk6av9smhCxq0qlF-nFHdGgz33Zg";
+let validTokenFailPayment =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjYzMTQ2ODgyfQ.3O54k_dthG4siW6F0QBDd5A3dFWV2oG9I2IKAxL2-U0";
 
 const customerTest = {
   username: "test1",
@@ -33,6 +33,25 @@ const customerTest = {
   address: "jl. earth",
   balance: 90000,
   location: [-6.287204, 106.839076],
+};
+
+const testData = {
+  cart: [
+    {
+      date: new Date(),
+      price: 50000,
+      CourtCategoryId: 1,
+      ScheduleId: 8,
+    },
+    {
+      date: new Date(),
+      price: 20000,
+      CourtCategoryId: 1,
+      ScheduleId: 9,
+    },
+  ],
+  totalPrice: 70000,
+  status: "Reserved",
 };
 
 beforeAll(() => {
@@ -59,7 +78,7 @@ beforeAll(() => {
       return queryInterface.bulkInsert("Categories", categories);
     })
     .then(() => {
-      let courts = JSON.parse(fs.readFileSync("./data/courts.json", "utf-8"))
+      let courts = JSON.parse(fs.readFileSync("./data/courts.json", "utf-8"));
       courts.forEach((court) => {
         court.location = Sequelize.fn(
           "ST_GeomFromText",
@@ -100,7 +119,7 @@ beforeAll(() => {
       orders.forEach((o) => {
         o.createdAt = o.updatedAt = new Date();
       });
-      console.log(orders, '==========');
+      console.log(orders, "==========");
       return queryInterface.bulkInsert("Orders", orders);
     })
     .then(() => {
@@ -110,7 +129,7 @@ beforeAll(() => {
       orderDetails.forEach((o) => {
         o.createdAt = o.updatedAt = new Date();
       });
-      console.log(orderDetails, '+++++++++');
+      console.log(orderDetails, "+++++++++");
       return queryInterface.bulkInsert("OrderDetails", orderDetails);
     })
 
@@ -323,7 +342,7 @@ describe("Customer Login and register Routes Test", () => {
           expect(body).toHaveProperty("message", "Invalid Email/Password");
           return done();
         });
-    })
+    });
 
     test("401 Failed login - should return error when email / password is not inputed", (done) => {
       request(app)
@@ -338,10 +357,13 @@ describe("Customer Login and register Routes Test", () => {
 
           expect(status).toBe(401);
           expect(body).toEqual(expect.any(Object));
-          expect(body).toHaveProperty("message", "Email / Password is required");
+          expect(body).toHaveProperty(
+            "message",
+            "Email / Password is required"
+          );
           return done();
         });
-    })
+    });
 
     test("401 Failed login - should return error when email / password is not inputed", (done) => {
       request(app)
@@ -356,10 +378,10 @@ describe("Customer Login and register Routes Test", () => {
 
           expect(status).toBe(401);
           expect(body).toEqual(expect.any(Object));
-          expect(body).toHaveProperty('message', expect.any(String));
+          expect(body).toHaveProperty("message", expect.any(String));
           return done();
         });
-    })
+    });
   });
 });
 
@@ -371,7 +393,7 @@ describe("GET /customer/venues", () => {
       .then((response) => {
         const { body, status } = response;
         expect(status).toBe(200);
-        expect(body).toEqual(expect.any(Array));
+        expect(body).toEqual(expect.any(Object));
         done();
       })
       .catch((err) => {
@@ -382,25 +404,11 @@ describe("GET /customer/venues", () => {
   test("Should return error message if invalid token is inputted", (done) => {
     request(app)
       .get("/customer/venues")
-      .set("access_token",invalidToken)
+      .set("access_token", invalidToken)
       .then((response) => {
         const { body, status } = response;
         expect(status).toBe(403);
-        expect(body).toHaveProperty('message', expect.any(String))
-        done();
-      })
-      .catch((err) => {
-        done(err);
-      });
-  })
-
-  test("Should return error message when not logged in yet", (done) => {
-    request(app)
-      .get("/customer/venues")
-      .then((response) => {
-        const { body, status } = response;
-        expect(status).toBe(401);
-        expect(body).toHaveProperty('message', expect.any(String))
+        expect(body).toHaveProperty("message", expect.any(String));
         done();
       })
       .catch((err) => {
@@ -408,6 +416,19 @@ describe("GET /customer/venues", () => {
       });
   });
 
+  test("Should return error message when not logged in yet", (done) => {
+    request(app)
+      .get("/customer/venues")
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(401);
+        expect(body).toHaveProperty("message", expect.any(String));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
 });
 
 describe("GET /customer/courts", () => {
@@ -443,7 +464,7 @@ describe("GET /customer/courts", () => {
 
   test("200 Success get court categories detail by id", (done) => {
     request(app)
-      .get(`/customer/courts/2`)
+      .get(`/customer/courts/2?date=2022-09-09`)
       .set("access_token", validToken)
       .then((response) => {
         const { body, status } = response;
@@ -456,14 +477,14 @@ describe("GET /customer/courts", () => {
       });
   });
 
-  test("Should return error message", (done) => {
+  test("500 Fail get court categories detail by id because date is not provided", (done) => {
     request(app)
-      .get("/customer/courts")
-      .set("access_token",invalidToken)
+      .get(`/customer/courts/2`)
+      .set("access_token", validToken)
       .then((response) => {
         const { body, status } = response;
-        expect(status).toBe(403);
-        expect(body).toHaveProperty('message', expect.any(String))
+        expect(status).toBe(500);
+        expect(body).toEqual(expect.any(Object));
         done();
       })
       .catch((err) => {
@@ -471,6 +492,20 @@ describe("GET /customer/courts", () => {
       });
   });
 
+  test("Should return error message", (done) => {
+    request(app)
+      .get("/customer/courts")
+      .set("access_token", invalidToken)
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(403);
+        expect(body).toHaveProperty("message", expect.any(String));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
 });
 
 describe("GET /customer/profile", () => {
@@ -502,6 +537,21 @@ describe("GET /customer/profile", () => {
         done(err);
       });
   });
+
+  test("403 Fail get profile because invalid token", (done) => {
+    request(app)
+      .get("/customer/profile")
+      .set('access_token', invalidToken )
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(403);
+        expect(body).toEqual(expect.any(Object));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
 });
 
 describe("GET customer categories", () => {
@@ -512,49 +562,47 @@ describe("GET customer categories", () => {
       .then((response) => {
         const { body, status } = response;
         expect(status).toBe(200);
-        expect(body).toEqual(expect.any(Array));
+        expect(body).toEqual(expect.any(Object));
         done();
       })
       .catch((err) => {
         done(err);
       });
   });
-
 });
 
 describe("Customer Order Test", () => {
-    test("200 Success get all customer orders", (done) => {
-      request(app)
-        .get("/customer/courts-orderList")
-        .set("access_token", validToken)
-        .then((response) => {
-          const { body, status } = response;
-          expect(status).toBe(200);
-          expect(body).toEqual(expect.any(Array));
-          done();
-        })
-        .catch((err) => {
-          done(err);
-        });
-    });
-
+  test("200 Success get all customer orders", (done) => {
+    request(app)
+      .get("/customer/courts-orderList")
+      .set("access_token", validToken)
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(200);
+        expect(body).toEqual(expect.any(Object));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
   });
+});
 
 describe("Customer Payment Test", () => {
   test("200 Success connect to midtrans", (done) => {
     request(app)
       .post("/customer/top-up")
       .send({
-        amount: 100000
+        amount: 100000,
       })
       .set("access_token", validToken)
       .then((response) => {
         const { body, status } = response;
         expect(status).toBe(200);
         expect(body).toEqual(expect.any(Object));
-        expect(body).toHaveProperty("token", expect.any(String))
-        expect(body).toHaveProperty("redirect_url", expect.any(String))
-        expect(body).toHaveProperty("inputAmount", expect.any(Number))
+        expect(body).toHaveProperty("token", expect.any(String));
+        expect(body).toHaveProperty("redirect_url", expect.any(String));
+        expect(body).toHaveProperty("inputAmount", expect.any(Number));
         done();
       })
       .catch((err) => {
@@ -566,14 +614,51 @@ describe("Customer Payment Test", () => {
     request(app)
       .post("/customer/top-up/update-balance")
       .send({
-        gross_amount: 100000
+        gross_amount: 100000,
       })
       .set("access_token", validToken)
       .then((response) => {
         const { body, status } = response;
         expect(status).toBe(200);
         expect(body).toEqual(expect.any(Object));
-        expect(body).toHaveProperty("message", expect.any(String))
+        expect(body).toHaveProperty("message", expect.any(String));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  test("401 fail update balance customer because not logged in yet", (done) => {
+    request(app)
+      .post("/customer/top-up/update-balance")
+      .send({
+        gross_amount: 100000,
+      })
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(401);
+        expect(body).toEqual(expect.any(Object));
+        expect(body).toHaveProperty("message", expect.any(String));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  test("403 Success update balance customer", (done) => {
+    request(app)
+      .post("/customer/top-up/update-balance")
+      .send({
+        gross_amount: 100000,
+      })
+      .set("access_token", invalidToken)
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(403);
+        expect(body).toEqual(expect.any(Object));
+        expect(body).toHaveProperty("message", expect.any(String));
         done();
       })
       .catch((err) => {
@@ -584,18 +669,20 @@ describe("Customer Payment Test", () => {
   test("200 Success pay order", (done) => {
     request(app)
       .post("/customer/pay-orders")
+      .send(testData)
       .set("access_token", validToken)
       .then((response) => {
         const { body, status } = response;
         expect(status).toBe(200);
         expect(body).toEqual(expect.any(Object));
-        expect(body).toHaveProperty("message", expect.any(String))
+        expect(body).toHaveProperty("message", expect.any(String));
         done();
       })
       .catch((err) => {
         done(err);
       });
   });
+
 
   test("200 Success cancel order", (done) => {
     request(app)
@@ -605,23 +692,7 @@ describe("Customer Payment Test", () => {
         const { body, status } = response;
         expect(status).toBe(200);
         expect(body).toEqual(expect.any(Object));
-        expect(body).toHaveProperty("message", expect.any(String))
-        done();
-      })
-      .catch((err) => {
-        done(err);
-      });
-  })
-
-  test("200 Unsuccess pay order because balance is not enough", (done) => {
-    request(app)
-      .post("/customer/pay-orders")
-      .set("access_token", validTokenFailPayment)
-      .then((response) => {
-        const { body, status } = response;
-        expect(status).toBe(403);
-        expect(body).toEqual(expect.any(Object));
-        expect(body).toHaveProperty("message", expect.any(String))
+        expect(body).toHaveProperty("message", expect.any(String));
         done();
       })
       .catch((err) => {
@@ -629,6 +700,52 @@ describe("Customer Payment Test", () => {
       });
   });
 
+  
+  test("401 Fail cancel order because not logged in yet", (done) => {
+    request(app)
+      .patch("/customer/courts/cancelOrder/1")
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(401);
+        expect(body).toEqual(expect.any(Object));
+        expect(body).toHaveProperty("message", expect.any(String));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  test("403 fail cancel order because invalid token", (done) => {
+    request(app)
+      .patch("/customer/courts/cancelOrder/1")
+      .set("access_token", invalidToken)
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(403);
+        expect(body).toEqual(expect.any(Object));
+        expect(body).toHaveProperty("message", expect.any(String));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
+
+  test("200 Fail pay order because balance is not enough", (done) => {
+    request(app)
+      .post("/customer/pay-orders")
+      .set("access_token", validTokenFailPayment)
+      .send(testData)
+      .then((response) => {
+        const { body, status } = response;
+        expect(status).toBe(403);
+        expect(body).toEqual(expect.any(Object));
+        expect(body).toHaveProperty("message", expect.any(String));
+        done();
+      })
+      .catch((err) => {
+        done(err);
+      });
+  });
 });
-
-

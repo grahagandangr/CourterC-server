@@ -1,7 +1,7 @@
-const { sequelize } = require('../models');
-const { CourtCategory, Image, Court, Category, User } = require('../models');
-const { Op } = require('sequelize');
-const upload = require('../middlewares/multer');
+const { sequelize } = require("../models");
+const { CourtCategory, Image, Court, Category, User } = require("../models");
+const { Op } = require("sequelize");
+const upload = require("../middlewares/multer");
 module.exports = class CourtCategoryController {
   static async getAllOwner(req, res, next) {
     try {
@@ -14,7 +14,6 @@ module.exports = class CourtCategoryController {
               model: User,
             },
           },
-
           {
             model: Category,
           },
@@ -29,7 +28,7 @@ module.exports = class CourtCategoryController {
       const courtCategoryFiltered = filter.map((e) => {
         return {
           id: e.id,
-          name: e.Court.name + '-' + e.Category.name,
+          name: e.Court.name + "-" + e.Category.name,
           address: e.Court.address,
           image: e.Images[0].imgUrl,
           price: e.price,
@@ -40,7 +39,7 @@ module.exports = class CourtCategoryController {
         courtCategoryFiltered,
       });
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 
@@ -52,7 +51,6 @@ module.exports = class CourtCategoryController {
           {
             model: Court,
           },
-
           {
             model: Category,
           },
@@ -65,7 +63,7 @@ module.exports = class CourtCategoryController {
       const courtCategoryFiltered = courtCategory.map((e) => {
         return {
           id: e.id,
-          name: e.Court.name + '-' + e.Category.name,
+          name: e.Court.name + "-" + e.Category.name,
           address: e.Court.address,
           image: e.Images[0].imgUrl,
           price: e.price,
@@ -76,13 +74,13 @@ module.exports = class CourtCategoryController {
         courtCategoryFiltered,
       });
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 
   static async getAllByRadius(req, res, next) {
     try {
-      const distance = req.query.distance || 200000000000;
+      const distance = req.query.distance || 20000;
       const lat = req.query.lat || -6.25881;
       const long = req.query.long || 106.82932;
 
@@ -111,13 +109,12 @@ module.exports = class CourtCategoryController {
           type: sequelize.QueryTypes.SELECT,
         }
       );
-      console.log(result, '<<<<<<<<<<<<');
 
       const courtCategoryFiltered = result.map((e) => {
         return {
           id: e.id,
           Category: e.CategoryName,
-          name: e.name + ' - ' + e.CategoryName,
+          name: e.name + " - " + e.CategoryName,
           address: e.address,
           image: e.imgUrl,
           price: e.price,
@@ -128,23 +125,24 @@ module.exports = class CourtCategoryController {
         courtCategoryFiltered,
       });
     } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 
   static async createCourtCategory(req, res, next) {
     // console.log(req);
-    const t = await sequelize.transaction();
+    // const t = await sequelize.transaction();
     try {
       // console.log(req.images);
-      const { CategoryId, price, imgUrl, CourtId } = req.body;
+      const { CategoryId, price, CourtId } = req.body;
+
       const created = await CourtCategory.create(
         {
           CourtId,
           CategoryId,
           price,
-        },
-        { transaction: t }
+        }
+        // { transaction: t }
       );
       // console.log(created);
       let arr = [];
@@ -156,47 +154,21 @@ module.exports = class CourtCategoryController {
         arr.push(obj);
         return arr;
       });
-      const images = await Image.bulkCreate(arr, { transaction: t });
+      const images = await Image.bulkCreate(arr);
 
-      // const image = await Image.create(
-      //   {
-      //     CourtCategoryId: created.id,
-      //     imgUrl: path,
-      //   },
-      //   { transaction: t }
-      // );
-      await t.commit();
+      console.log(req.body, "+++++++");
+      console.log(req.files, "========");
+
+      // await t.commit();
       res.status(201).json({
-        message: 'success create court category, image',
+        message: "success create court category, image",
         created,
         images,
       });
     } catch (error) {
       console.log(error);
       next(error);
-      await t.rollback();
-    }
-  }
-
-  static async updateCourtCategory(req, res, next) {
-    try {
-      const { id } = req.params;
-
-      const { CategoryId, price } = req.body;
-      const courtCategory = await CourtCategory.update(
-        { CategoryId, price },
-        {
-          where: {
-            id,
-          },
-        }
-      );
-
-      res.status(200).json({
-        message: 'success updated',
-      });
-    } catch (error) {
-      console.log(error);
+      // await t.rollback();
     }
   }
 
@@ -223,23 +195,7 @@ module.exports = class CourtCategoryController {
         courtCategory,
       });
     } catch (error) {
-      console.log(error);
-    }
-  }
-
-  static async deleteCourtCategory(req, res, next) {
-    const { id } = req.params;
-
-    try {
-      await CourtCategory.destroy({
-        where: { id },
-      });
-
-      res.status(200).json({
-        message: 'success delete courtCategory',
-      });
-    } catch (error) {
-      console.log(error);
+      next(error);
     }
   }
 };

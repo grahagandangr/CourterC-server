@@ -71,7 +71,6 @@ class PaymentController {
       res.status(200).json({ message: "Success top-up balance" });
     } catch (error) {
       next(error);
-      console.log(error);
     }
   }
 
@@ -101,7 +100,6 @@ class PaymentController {
       });
     } catch (error) {
       next(error)
-      console.log(error);
     }
   }
 
@@ -132,7 +130,6 @@ class PaymentController {
       });
     } catch (error) {
       next(error)
-      console.log(error);
     }
   }
 }
