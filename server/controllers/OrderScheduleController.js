@@ -90,7 +90,7 @@ class Controller {
       const order = await Order.findAll({
         include: [
           {
-            model: CourtCategory,
+            model: CourtCategory, 
             include: [
               {
                 model: Court,
@@ -106,6 +106,10 @@ class Controller {
           {
             model: OrderDetail,
           },
+          {
+            model: User
+          }
+
         ],
       });
       const schedule = await Schedule.findAll();
@@ -116,6 +120,7 @@ class Controller {
           name: e.CourtCategory.Court.name + "-" + e.CourtCategory.Category.name,
           totalPrice: e.totalPrice,
           orderDetails: e.OrderDetails,
+          customer: e.User
         };
       });
 
