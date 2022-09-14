@@ -28,16 +28,16 @@ module.exports = class CourtController {
   static async createCourt(req, res, next) {
     try {
       const id = req.user.id;
-      
-      const { name, description, openHour, closeHour, location, address } =
+      console.log(0);
+      let { name, description, openHour, closeHour, location, address } =
         req.body;
+        console.log(location);
+        const user = await User.findOne({where: {
+          id:id
+        }})
 
-      const lat = location[0];
 
-      const long = location[1];
-
-      const point = { type: "POINT", coordinates: [lat, long] };
-
+      const point = { type: "POINT", coordinates: location };
       const court = await Court.create({
         name,
         description,
@@ -47,12 +47,12 @@ module.exports = class CourtController {
         location: point,
         address,
       });
-
       res.status(201).json({
         message: "success create court",
+        id: court.id
       });
     } catch (error) {
-      res.status(500).json(error);
+      next(error);
     }
   }
 };

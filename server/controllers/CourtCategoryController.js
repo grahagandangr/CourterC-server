@@ -1,6 +1,7 @@
-const { sequelize } = require("../models");
-const { CourtCategory, Image, Court, Category, User } = require("../models");
-
+const { sequelize } = require('../models');
+const { CourtCategory, Image, Court, Category, User } = require('../models');
+const { Op } = require('sequelize');
+const upload = require('../middlewares/multer');
 module.exports = class CourtCategoryController {
   static async getAllOwner(req, res, next) {
     try {
@@ -28,7 +29,7 @@ module.exports = class CourtCategoryController {
       const courtCategoryFiltered = filter.map((e) => {
         return {
           id: e.id,
-          name: e.Court.name + "-" + e.Category.name,
+          name: e.Court.name + '-' + e.Category.name,
           address: e.Court.address,
           image: e.Images[0].imgUrl,
           price: e.price,
@@ -64,7 +65,7 @@ module.exports = class CourtCategoryController {
       const courtCategoryFiltered = courtCategory.map((e) => {
         return {
           id: e.id,
-          name: e.Court.name + "-" + e.Category.name,
+          name: e.Court.name + '-' + e.Category.name,
           address: e.Court.address,
           image: e.Images[0].imgUrl,
           price: e.price,
@@ -110,13 +111,13 @@ module.exports = class CourtCategoryController {
           type: sequelize.QueryTypes.SELECT,
         }
       );
-      console.log(result, "<<<<<<<<<<<<");
+      console.log(result, '<<<<<<<<<<<<');
 
       const courtCategoryFiltered = result.map((e) => {
         return {
           id: e.id,
           Category: e.CategoryName,
-          name: e.name + " - " + e.CategoryName,
+          name: e.name + ' - ' + e.CategoryName,
           address: e.address,
           image: e.imgUrl,
           price: e.price,
@@ -124,7 +125,7 @@ module.exports = class CourtCategoryController {
       });
 
       res.status(200).json({
-        courtCategoryFiltered
+        courtCategoryFiltered,
       });
     } catch (error) {
       console.log(error);
@@ -132,26 +133,48 @@ module.exports = class CourtCategoryController {
   }
 
   static async createCourtCategory(req, res, next) {
+    // console.log(req);
+    const t = await sequelize.transaction();
     try {
-      const CourtId = req.user.CourtId;
-      const { CategoryId, price, imgUrl } = req.body;
-      const created = await CourtCategory.create({
-        CourtId,
-        CategoryId,
-        price,
-      });
-
-      const images = await Image.bulkCreate(
-        imgUrl.map((img) => ({ imgUrl: img, CourtCategoryId: created.id }))
+      // console.log(req.images);
+      const { CategoryId, price, imgUrl, CourtId } = req.body;
+      const created = await CourtCategory.create(
+        {
+          CourtId,
+          CategoryId,
+          price,
+        },
+        { transaction: t }
       );
+      // console.log(created);
+      let arr = [];
+      req.files.map((el) => {
+        let obj = {
+          imgUrl: el.path,
+          CourtCategoryId: created.id,
+        };
+        arr.push(obj);
+        return arr;
+      });
+      const images = await Image.bulkCreate(arr, { transaction: t });
 
+      // const image = await Image.create(
+      //   {
+      //     CourtCategoryId: created.id,
+      //     imgUrl: path,
+      //   },
+      //   { transaction: t }
+      // );
+      await t.commit();
       res.status(201).json({
-        message: "success create court category, image",
+        message: 'success create court category, image',
         created,
         images,
       });
     } catch (error) {
       console.log(error);
+      next(error);
+      await t.rollback();
     }
   }
 
@@ -170,7 +193,7 @@ module.exports = class CourtCategoryController {
       );
 
       res.status(200).json({
-        message: "success updated",
+        message: 'success updated',
       });
     } catch (error) {
       console.log(error);
@@ -213,7 +236,7 @@ module.exports = class CourtCategoryController {
       });
 
       res.status(200).json({
-        message: "success delete courtCategory",
+        message: 'success delete courtCategory',
       });
     } catch (error) {
       console.log(error);
