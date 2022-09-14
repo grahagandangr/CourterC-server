@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   OrderDetail.init(
     {
       date: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false,
         validate: {
           notEmpty: {
