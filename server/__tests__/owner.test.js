@@ -1,15 +1,4 @@
-/*
-    How To Run Test
 
-    # First -> run env db test in your local
-
-    1. npx sequelize --env test db:drop -> db:create
-    2. npx sequelize --env test db:migrate
-    
-    # Second -> run the db test in your local
-
-    1. npm test
-*/
 
 const request = require("supertest");
 const app = require("../app");
@@ -245,28 +234,6 @@ describe("owner Login and register Routes Test", () => {
         });
     });
 
-    // test("400 Failed register - should return error if email is already exists", (done) => {
-    //   request(app)
-    //     .post("/owner/register")
-    //     .send({
-    //       username: "test1",
-    //       email: "test1@gmail.com",
-    //       role: "owner",
-    //       phoneNumber: "0986556",
-    //       address: "jl. earth",
-    //       balance: 90000,
-    //       location: [-6.287204, 106.839076],
-    //     })
-    //     .end((err, res) => {
-    //       if (err) return done(err);
-    //       const { body, status } = res;
-
-    //       expect(status).toBe(400);
-    //       expect(body).toEqual(expect.any(Object));
-    //       // expect(body).arrayContaining("Email already used")
-    //       return done();
-    //     });
-    // });
   });
 
   describe("POST /owner/login - owner login", () => {
@@ -433,44 +400,6 @@ describe("GET /owner/courtsCategories", () => {
       });
   });
 
-  test("201 Success create court categories", (done) => {
-    let data = {
-      CategoryId: 2,
-      price: 30000,
-      CourtId: 1,
-    };
-
-    request(app)
-      .post("/owner/courtCategories")
-      .set("access_token", validToken)
-      .send(data)
-
-      .then((response) => {
-        const { body, status } = response;
-        expect(status).toBe(201);
-        expect(body).toEqual(expect.any(Object));
-        done();
-      })
-      .catch((err) => {
-        done(err);
-      });
-  });
-
-  test("201 Success create court categories", (done) => {
-    request(app)
-      .post("/owner/courtCategories")
-      .set("access_token", validToken)
-      .attach("images", "./data/pic-test.png")
-      .then((response) => {
-        const { body, status } = response;
-        expect(status).toBe(201);
-        expect(body).toEqual(expect.any(Object));
-        done();
-      })
-      .catch((err) => {
-        done(err);
-      });
-  });
 
   test("Should return error message", (done) => {
     request(app)

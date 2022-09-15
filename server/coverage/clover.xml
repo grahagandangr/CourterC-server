@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1663175723308" clover="3.2.0">
-  <project timestamp="1663175723308" name="All files">
-    <metrics statements="393" coveredstatements="370" conditionals="55" coveredconditionals="49" methods="57" coveredmethods="56" elements="505" coveredelements="475" complexity="0" loc="393" ncloc="393" packages="6" files="25" classes="25"/>
+<coverage generated="1663217433951" clover="3.2.0">
+  <project timestamp="1663217433951" name="All files">
+    <metrics statements="392" coveredstatements="361" conditionals="53" coveredconditionals="48" methods="57" coveredmethods="54" elements="502" coveredelements="463" complexity="0" loc="392" ncloc="392" packages="6" files="25" classes="25"/>
     <package name="server">
-      <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
+      <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.js" path="D:\rmt-26\p3\FITUR_CHAT\CourterC-server\server\app.js">
-        <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="2" count="2" type="stmt"/>
+        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
@@ -23,7 +22,7 @@
       </file>
     </package>
     <package name="server.controllers">
-      <metrics statements="211" coveredstatements="189" conditionals="26" coveredconditionals="24" methods="29" coveredmethods="28"/>
+      <metrics statements="211" coveredstatements="182" conditionals="26" coveredconditionals="24" methods="29" coveredmethods="27"/>
       <file name="CategoryController.js" path="D:\rmt-26\p3\FITUR_CHAT\CourterC-server\server\controllers\CategoryController.js">
         <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="2" type="stmt"/>
@@ -34,7 +33,7 @@
         <line num="10" count="0" type="stmt"/>
       </file>
       <file name="CourtCategoryController.js" path="D:\rmt-26\p3\FITUR_CHAT\CourterC-server\server\controllers\CourtCategoryController.js">
-        <metrics statements="48" coveredstatements="37" conditionals="6" coveredconditionals="6" methods="10" coveredmethods="9"/>
+        <metrics statements="48" coveredstatements="30" conditionals="6" coveredconditionals="6" methods="10" coveredmethods="8"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -64,11 +63,11 @@
         <line num="115" count="6" type="stmt"/>
         <line num="125" count="1" type="stmt"/>
         <line num="129" count="0" type="stmt"/>
-        <line num="136" count="2" type="stmt"/>
-        <line num="138" count="2" type="stmt"/>
-        <line num="140" count="2" type="stmt"/>
-        <line num="149" count="1" type="stmt"/>
-        <line num="150" count="1" type="stmt"/>
+        <line num="136" count="0" type="stmt"/>
+        <line num="138" count="0" type="stmt"/>
+        <line num="140" count="0" type="stmt"/>
+        <line num="149" count="0" type="stmt"/>
+        <line num="150" count="0" type="stmt"/>
         <line num="151" count="0" type="stmt"/>
         <line num="155" count="0" type="stmt"/>
         <line num="156" count="0" type="stmt"/>
@@ -76,8 +75,8 @@
         <line num="160" count="0" type="stmt"/>
         <line num="161" count="0" type="stmt"/>
         <line num="164" count="0" type="stmt"/>
-        <line num="170" count="2" type="stmt"/>
-        <line num="171" count="2" type="stmt"/>
+        <line num="170" count="0" type="stmt"/>
+        <line num="171" count="0" type="stmt"/>
         <line num="177" count="2" type="stmt"/>
         <line num="179" count="2" type="stmt"/>
         <line num="180" count="2" type="stmt"/>
@@ -267,7 +266,7 @@
         <line num="6" count="2" type="stmt"/>
         <line num="7" count="5" type="stmt"/>
         <line num="9" count="3" type="stmt"/>
-        <line num="11" count="31" type="stmt"/>
+        <line num="11" count="29" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
       </file>
       <file name="midtrans.js" path="D:\rmt-26\p3\FITUR_CHAT\CourterC-server\server\helpers\midtrans.js">
@@ -278,49 +277,49 @@
       </file>
     </package>
     <package name="server.middlewares">
-      <metrics statements="36" coveredstatements="36" conditionals="18" coveredconditionals="18" methods="4" coveredmethods="4"/>
+      <metrics statements="36" coveredstatements="35" conditionals="18" coveredconditionals="18" methods="4" coveredmethods="3"/>
       <file name="authentication.js" path="D:\rmt-26\p3\FITUR_CHAT\CourterC-server\server\middlewares\authentication.js">
         <metrics statements="16" coveredstatements="16" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
-        <line num="5" count="37" type="stmt"/>
-        <line num="6" count="37" type="stmt"/>
-        <line num="8" count="37" type="cond" truecount="2" falsecount="0"/>
+        <line num="5" count="35" type="stmt"/>
+        <line num="6" count="35" type="stmt"/>
+        <line num="8" count="35" type="cond" truecount="2" falsecount="0"/>
         <line num="9" count="6" type="stmt"/>
-        <line num="14" count="31" type="stmt"/>
-        <line num="15" count="23" type="stmt"/>
-        <line num="22" count="23" type="stmt"/>
-        <line num="26" count="23" type="stmt"/>
-        <line num="33" count="23" type="cond" truecount="2" falsecount="0"/>
-        <line num="34" count="10" type="stmt"/>
-        <line num="36" count="23" type="stmt"/>
+        <line num="14" count="29" type="stmt"/>
+        <line num="15" count="21" type="stmt"/>
+        <line num="22" count="21" type="stmt"/>
+        <line num="26" count="21" type="stmt"/>
+        <line num="33" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="34" count="8" type="stmt"/>
+        <line num="36" count="21" type="stmt"/>
         <line num="38" count="14" type="stmt"/>
         <line num="39" count="14" type="stmt"/>
         <line num="43" count="2" type="stmt"/>
       </file>
       <file name="errorHandlers.js" path="D:\rmt-26\p3\FITUR_CHAT\CourterC-server\server\middlewares\errorHandlers.js">
         <metrics statements="15" coveredstatements="15" conditionals="14" coveredconditionals="14" methods="2" coveredmethods="2"/>
-        <line num="2" count="29" type="stmt"/>
-        <line num="3" count="29" type="cond" truecount="2" falsecount="0"/>
-        <line num="7" count="6" type="stmt"/>
-        <line num="8" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="2" count="27" type="stmt"/>
+        <line num="3" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="24" type="cond" truecount="2" falsecount="0"/>
         <line num="9" count="4" type="stmt"/>
-        <line num="12" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="20" type="cond" truecount="2" falsecount="0"/>
         <line num="13" count="6" type="stmt"/>
-        <line num="16" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="14" type="cond" truecount="2" falsecount="0"/>
         <line num="17" count="4" type="stmt"/>
-        <line num="20" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="10" type="cond" truecount="2" falsecount="0"/>
         <line num="21" count="8" type="stmt"/>
-        <line num="24" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="2" type="cond" truecount="2" falsecount="0"/>
         <line num="25" count="1" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
         <line num="35" count="2" type="stmt"/>
       </file>
       <file name="multer.js" path="D:\rmt-26\p3\FITUR_CHAT\CourterC-server\server\middlewares\multer.js">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="5" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
       </file>

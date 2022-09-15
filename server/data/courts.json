@@ -6,7 +6,7 @@
 
         "openHour": 9,
         "closeHour": 23,
-        "address": "jl. earth",
+        "address": "Jl. Ki Mangunsarkoro 16,Jakarta Pusat",
         "location": [-6.287204, 106.839076]
     },
     {
@@ -16,7 +16,7 @@
 
         "openHour": 9,
         "closeHour": 23,
-        "address": "jl. earth",
+        "address": "Jl. Taman Suropati, RT.5/RW.5, Kota Jakarta Pusat",
         "location": [-6.1789728520833, 106.81201425438192]
     },
     {
@@ -27,7 +27,7 @@
         "openHour": 9,
         "closeHour": 18,
 
-        "address": "jl. earth",
+        "address": "Jl. Cikini Raya 103-107, Jakarta Pusat",
         "location": [-6.181420269523423, 106.76094312803146]
     },
     {
@@ -37,7 +37,7 @@
 
         "openHour": 9,
         "closeHour": 20,
-        "address": "jl. earth",
+        "address": "Jl. K.S. Tubun No.18A, Kota Jakarta Barat",
         "location": [-6.182017590816576, 106.75836820737936]
     }
     

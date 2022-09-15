@@ -1,6 +1,6 @@
 [
     {
-        "username": "OwnerSub1",
+        "username": "Nurul Asmi Amalia",
         "email": "owner@mail.com",
         "password": "123456",
         "role": "owner",
@@ -10,7 +10,7 @@
         "balance": 0
     },
     {
-        "username": "CustomerOlla",
+        "username": "Graha Gandang Respati",
         "email": "customer@mail.com",
         "password": "123456",
         "role": "customer",
