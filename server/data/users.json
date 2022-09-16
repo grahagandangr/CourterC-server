@@ -1,0 +1,72 @@
+[
+    {
+        "username": "Nurul Asmi Amalia",
+        "email": "owner@mail.com",
+        "password": "123456",
+        "role": "owner",
+        "phoneNumber": "0822653535",
+        "location":[0, 0],
+        "address": "Jakarta",
+        "balance": 0
+    },
+    {
+        "username": "Graha Gandang Respati",
+        "email": "customer@mail.com",
+        "password": "123456",
+        "role": "customer",
+        "phoneNumber": "0822653535",
+        "location": [-6.287204, 106.839076],
+        "address": "Jakarta",
+        "balance": 300000
+    },
+    {
+        "username": "Jabolla",
+        "email": "jabolla@mail.com",
+        "password": "123456",
+        "role": "customer",
+        "phoneNumber": "0822653535",
+        "location": [-6.1789728520833, 106.81201425438192],
+        "address": "Jakarta",
+        "balance": 0
+    },
+    {
+        "username": "Sport.Co",
+        "email": "sportCo@mail.com",
+        "password": "123456",
+        "role": "owner",
+        "phoneNumber": "0822653295",
+        "location": [-6.1789728520833, 106.81201425438192],
+        "address": "Jakarta",
+        "balance": 0
+    },
+    {
+        "username": "RubyGarut",
+        "email": "rubygarut@mail.com",
+        "password": "123456",
+        "role": "customer",
+        "phoneNumber": "0822665535",
+        "location": [-6.181420269523423, 106.76094312803146],
+        "address": "Jakarta",
+        "balance": 0
+    },
+    {
+        "username": "CarlaCamilo",
+        "email": "carla1111@mail.com",
+        "password": "123456",
+        "role": "customer",
+        "phoneNumber": "0822653535",
+        "location": [-6.182017590816576, 106.75836820737936],
+        "address": "Jakarta",
+        "balance": 0
+    },
+    {
+        "username": "Raga jaya",
+        "email": "ragajaya@mail.com",
+        "password": "123456",
+        "role": "owner",
+        "phoneNumber": "08226532335",
+        "location": [-6.182017590816576, 106.758368207356836],
+        "address": "Jakarta",
+        "balance": 0
+    }
+]

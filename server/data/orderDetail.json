@@ -1,0 +1,19 @@
+[
+    {
+        "OrderId": 1,
+        "ScheduleId": 1,
+        "date": "2022-09-09T15:44:31.256Z",
+        "status": "Reserved",
+        "CourtCategoryId": 3,
+        "price": 100000
+    },
+    {
+        "OrderId": 1,
+        "status": "Reserved",
+        "ScheduleId": 2,
+        "date": "2022-09-09T15:44:31.256Z",
+        "CourtCategoryId": 2,
+        "price": 250000
+    }
+
+]

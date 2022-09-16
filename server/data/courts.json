@@ -1,0 +1,44 @@
+[
+    {
+        "name": "GOR Suluh",
+        "description": "GO GO Sport",
+        "UserId": 1,
+
+        "openHour": 9,
+        "closeHour": 23,
+        "address": "Jl. Ki Mangunsarkoro 16,Jakarta Pusat",
+        "location": [-6.287204, 106.839076]
+    },
+    {
+        "name": "GOR Cideng",
+        "description": "Play with your friend and family here",
+        "UserId": 4,
+
+        "openHour": 9,
+        "closeHour": 23,
+        "address": "Jl. Taman Suropati, RT.5/RW.5, Kota Jakarta Pusat",
+        "location": [-6.1789728520833, 106.81201425438192]
+    },
+    {
+        "name": "Golf station",
+        "description": "Relax and live your live in the middle of a humongous green field",
+        "UserId": 7,
+
+        "openHour": 9,
+        "closeHour": 18,
+
+        "address": "Jl. Cikini Raya 103-107, Jakarta Pusat",
+        "location": [-6.181420269523423, 106.76094312803146]
+    },
+    {
+        "name": "Tennis Center Bavarian",
+        "description": "Have fun and bit fit with us!!",
+        "UserId": 7,
+
+        "openHour": 9,
+        "closeHour": 20,
+        "address": "Jl. K.S. Tubun No.18A, Kota Jakarta Barat",
+        "location": [-6.182017590816576, 106.75836820737936]
+    }
+    
+]
